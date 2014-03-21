@@ -1,4 +1,4 @@
 flipbook.
 ========
 
-flipbook. Annomate your Instagram photos.
+flipbook. Animate your Instagram photos.
