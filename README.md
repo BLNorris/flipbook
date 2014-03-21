@@ -1,4 +1,4 @@
-flipbook
+flipbook.
 ========
 
-flipbook
+flipbook. Annomate your Instagram photos.
