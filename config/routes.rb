@@ -1,5 +1,5 @@
 Flipbook::Application.routes.draw do
-   resources :users, :flipbooks, :pictures
+   resources :users, :flipbooks, :pictures, :logins
    
    root :to => 'public#index'
 
