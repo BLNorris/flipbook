@@ -38,7 +38,9 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
+
+gem 'tumblr_client'
 
 gem 'instagram'
 gem 'dotenv'

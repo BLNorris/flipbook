@@ -3,13 +3,19 @@ Flipbook::Application.routes.draw do
    get 'flipbks/newtest' => 'flipbks#newtest'
    resources :users, :flipbks, :logins
    
-   
    get 'profile/:id' => 'public#profile'
+
+   get '/profile' => 'public#profile'
+
    
    get '/photos' => 'photos#index', :as => :photos
    
-   get "/oauth/connect" => 'users#connect'
-   get "/oauth/callback" => 'users#callback'
+   get '/oauth/connect' => 'users#connect'
+   get '/oauth/callback' => 'users#callback'
+   get '/feed' => 'users#feed', :as => :feed # Temporary route.
+   
+   get "/oauth/tumblr_connect" => 'users#tumblr_connect'
+   get "/oauth/tumblr_callback" => 'users#tumblr_callback'
    
    root :to => 'public#index'
 
