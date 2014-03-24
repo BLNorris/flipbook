@@ -1,12 +1,11 @@
 <h1>Log In</h1>
 
-<%# This is just a plan-ol' HTML form maker: %>
+<% if @user %>
+Username or password incorrect
+
+<% end %>
+
 <%= form_tag logins_path do %>
-  <p>
-    <%# WILL NOT WORK. No `f`. %>
-    <%#= f.label :email %>
-    <%#= f.text_field :email %>
-  </p>
   
   <p>
     <%= label_tag :email %>

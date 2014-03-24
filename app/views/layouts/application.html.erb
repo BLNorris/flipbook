@@ -8,18 +8,20 @@
 </head>
 <body>
   <header>
+    <% #make this a link %>
     <h1 class="site_name">
   FLIPBOOK
     </h1>
+    
     <div class="login_box">
 <% if current_user %>
-  <p>Welcome, <%= current_user.email %>!!!</p>
+  Welcome, <%= current_user.email %>!!!<br>
   <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
 <% else %>
-  <p>
+  
     <%= link_to("Sign Up", :new_user) %> | 
     <%= link_to("Log In", :new_login) %>
-  </p>
+  
 <% end %>
     </div>
   </header>
