@@ -1,5 +1,8 @@
 Flipbook::Application.routes.draw do
+   
+   get 'flipbks/newtest' => 'flipbks#newtest'
    resources :users, :flipbks, :logins
+   
    
    get 'profile/:id' => 'public#profile'
    

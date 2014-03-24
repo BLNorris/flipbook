@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   validates :email, :name, :password, :password_confirmation, presence: true
   validates :email, :uniqueness => true, email: true
   validates :password, length: { minimum: 6 }
+  
+  has_many :flipbks
 end

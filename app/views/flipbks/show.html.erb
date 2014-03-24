@@ -32,3 +32,9 @@
 <!-- THE FACEBOOK BUTTON ITSELF -->
 <!-- This is the "share" button that is found in the private user profile, so that the user can share their public page via their private profile view -->
 <div class="fb-share-button" data-href="https://flipbook-ocs.herokuapp.com/public/show/<%= @user.id %>" data-width="55" data-type="button"></div>
+
+<% @user.flipbks.each do |book| %>
+<p>
+  <%= book.name %>
+  </p>
+<% end %>
