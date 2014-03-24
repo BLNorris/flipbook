@@ -1,8 +1,13 @@
 Flipbook::Application.routes.draw do
-   resources :users, :flipbooks, :pictures, :logins
-   
+   resources :users, :flipbooks, :logins
    
    get 'profile/:id' => 'public#profile'
+   
+   get '/photos' => 'photos#index', :as => :photos
+   
+   get "/oauth/connect" => 'users#connect'
+   get "/oauth/callback" => 'users#callback'
+   
    root :to => 'public#index'
 
   # The priority is based upon order of creation:
