@@ -24,10 +24,12 @@ class FlipbksController < ApplicationController
   end
 
   def index
+    @user = User.find(session[:user_id])
   end
 
   def show
     @user = User.find(session[:user_id])
+    @book = Flipbk.find(params[:id])
   end
   
   def newtest

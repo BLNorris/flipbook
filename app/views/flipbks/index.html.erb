@@ -1,2 +1,9 @@
 <h1>Flipbooks#index</h1>
 <p>Find me in app/views/flipbooks/index.html.erb</p>
+
+
+<% @user.flipbks.each do |book| %>
+<p>
+  <%= book.name %>
+  </p>
+<% end %>
