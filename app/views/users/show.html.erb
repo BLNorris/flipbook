@@ -1,2 +1,37 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<!-- This is the "share" button that is found in the private user profile, so that the user can share their public page via their private profile view -->
+<!-- INITIALIZES THE ACTUAL FACEBOOK JS API, DO NOT REMOVE -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      // appId      : '{your-app-id}',
+      status     : true,
+      xfbml      : true
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<!-- CALLING THE JS THINGY (probably) -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- THE FACEBOOK BUTTON ITSELF -->
+<div class="fb-share-button" data-href="https://flipbook-ocs.herokuapp.com/public/show/<%= @user.id %>" data-width="55" data-type="button"></div>
