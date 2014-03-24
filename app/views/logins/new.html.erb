@@ -1,0 +1,22 @@
+<h1>Log In</h1>
+
+<%# This is just a plan-ol' HTML form maker: %>
+<%= form_tag logins_path do %>
+  <p>
+    <%# WILL NOT WORK. No `f`. %>
+    <%#= f.label :email %>
+    <%#= f.text_field :email %>
+  </p>
+  
+  <p>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </p>
+  
+  <p>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </p>
+  
+  <%= submit_tag "Log In" %>
+<% end %>

@@ -12,7 +12,15 @@
   FLIPBOOK
     </h1>
     <div class="login_box">
-      Login/Signup form goes here
+<% if current_user %>
+  <p>Welcome, <%= current_user.email %>!!!</p>
+  <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
+<% else %>
+  <p>
+    <%= link_to("Sign Up", :new_user) %> | 
+    <%= link_to("Log In", :new_login) %>
+  </p>
+<% end %>
     </div>
   </header>
 
