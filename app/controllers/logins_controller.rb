@@ -7,7 +7,7 @@ class LoginsController < ApplicationController
     
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id # <-- That is what a "log in" is.
-      redirect_to :user
+      redirect_to user_url(@user.id)
     else
       
       render "new"
