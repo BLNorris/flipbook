@@ -1,16 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p>super important public profile stuff</p>
 
-
-
-
-<!-- INITIALIZES THE ACTUAL FACEBOOK JS API, DO NOT REMOVE -->
+<!-- INITIALIZES THE ACTUAL FACEBOOK API, DO NOT REMOVE -->
 <!-- put inside of eventual body tag -->
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      // appId      : '{1492301310990221}',
+      appId      : '{1492301310990221}',
       status     : true,
       xfbml      : true
     });
@@ -25,6 +21,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
+
 <!-- put inside of eventual body tag -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -35,6 +32,11 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+</p>CONTENT! CONTENT EVERYWHERE!!!!!</p>
+
+
 <!-- THE FACEBOOK BUTTON ITSELF -->
-<!-- This is the "share" button that is found in the private user profile, so that the user can share their public page via their private profile view -->
-<div class="fb-share-button" data-href="https://flipbook-ocs.herokuapp.com/public/show/<%= @user.id %>" data-width="55" data-type="button"></div>
+<div class="fb-like" data-href="https://flipbook-ocs.herokuapp.com/public/show/" data-width="55" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+<!-- END FACEBOOK BUTTON -->
+<p>contentcontent</p>
