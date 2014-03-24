@@ -14,9 +14,6 @@ Flipbook::Application.routes.draw do
    get '/oauth/callback' => 'users#callback'
    get '/feed' => 'users#feed', :as => :feed # Temporary route.
    
-   get "/oauth/tumblr_connect" => 'users#tumblr_connect'
-   get "/oauth/tumblr_callback" => 'users#tumblr_callback'
-   
    root :to => 'public#index'
 
   # The priority is based upon order of creation:

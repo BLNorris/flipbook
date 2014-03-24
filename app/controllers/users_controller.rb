@@ -7,11 +7,7 @@ class UsersController < ApplicationController
     config.client_secret = ENV["INSTAGRAM_CLIENT_SECRET"]
   end
   
-  Tumblr.configure do |config|
-    config.consumer_key = ENV["TUMBLR_CLIENT_ID"]
-    config.consumer_secret = ENV["TUMBLR_CLIENT_SECRET"]
-  end
-  
+
   def connect
     redirect_to(Instagram.authorize_url(:redirect_uri => CALLBACK_URL))
   end
@@ -22,16 +18,7 @@ class UsersController < ApplicationController
     
     redirect_to(:feed)
   end
-  
-  def tumblr_connect
-    redirect Tumblr.authorize_url(:redirect_uri => TUMBLR_CALLBACK_URL)
-  end
-  
-  def tumblr_callback
-    response = Tumblr.get_access_token(params[:code], :redirect_uri => TUMBLR_CALLBACK_URL)
-    session[:access_token] = response.access_token
-    redirect :profile
-  end
+
   
   def index
   end
