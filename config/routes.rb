@@ -1,6 +1,8 @@
 Flipbook::Application.routes.draw do
    resources :users, :flipbooks, :pictures, :logins
    
+   
+   
    root :to => 'public#index'
 
   # The priority is based upon order of creation:
