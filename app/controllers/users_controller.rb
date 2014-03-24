@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
   
+  CALLBACK_URL = "http://localhost:9292/oauth/callback"
+  
   Instagram.configure do |config|
     config.client_id = ENV["INSTAGRAM_CLIENT_ID"]
     config.client_secret = ENV["INSTAGRAM_CLIENT_SECRET"]
   end
   
   def connect
-    redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
+    redirect_to(Instagram.authorize_url(:redirect_uri => CALLBACK_URL))
   end
   
   def callback
     response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
     session[:access_token] = response.access_token
-    redirect :user
+    
+    redirect_to(:feed)
   end
   
   def index
@@ -35,9 +38,15 @@ class UsersController < ApplicationController
   end
   
   def show
+    
+  end
+  
+  # Temporary for testing.
+  def feed
     @client = Instagram.client(:access_token => session[:access_token])
     @user = @client.user
-    redirect :photos
+    
+    # redirect :photos
   end
 
   def update

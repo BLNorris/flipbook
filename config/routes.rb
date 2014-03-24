@@ -5,8 +5,9 @@ Flipbook::Application.routes.draw do
    
    get '/photos' => 'photos#index', :as => :photos
    
-   get "/oauth/connect" => 'users#connect'
-   get "/oauth/callback" => 'users#callback'
+   get '/oauth/connect' => 'users#connect'
+   get '/oauth/callback' => 'users#callback'
+   get '/feed' => 'users#feed', :as => :feed # Temporary route.
    
    root :to => 'public#index'
 
