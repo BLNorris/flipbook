@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% #make this a link %>
+    <h1 class="site_name">
+  FLIPBOOK
+    </h1>
+    
+    <div class="login_box">
+<% if current_user %>
+  Welcome, <%= current_user.email %>!!!<br>
+  <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
+<% else %>
+  
+    <%= link_to("Sign Up", :new_user) %> | 
+    <%= link_to("Log In", :new_login) %>
+  
+<% end %>
+    </div>
+  </header>
 
-<%= yield %>
+  <%= yield %>
 
+  <footer>
+    <h5>
+    cool footer text goes here
+    </h5>
+  </footer>
 </body>
 </html>
