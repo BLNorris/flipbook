@@ -47,6 +47,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: flipbook_production
-  host: localhost
+  database: dofbdiehfdfce
+  host: ec2-107-20-191-205.compute-1.amazonaws.com
   port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
+  user: crznyjmjiqyhyb
+  password: pcVq_9rRWIaB-33nEloi92p7wD
