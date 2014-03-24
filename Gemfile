@@ -40,5 +40,7 @@ gem 'unicorn'
 # To use debugger
 # gem 'debugger'
 
+gem 'tumblr_client'
+
 gem 'instagram'
 gem 'dotenv'

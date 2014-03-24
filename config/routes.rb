@@ -1,7 +1,7 @@
 Flipbook::Application.routes.draw do
    resources :users, :flipbks, :logins
    
-   get 'profile/:id' => 'public#profile'
+   get '/profile' => 'public#profile'
    
    get '/photos' => 'photos#index', :as => :photos
    

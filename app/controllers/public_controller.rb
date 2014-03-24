@@ -6,7 +6,8 @@ class PublicController < ApplicationController
 
 
   def profile
-    @user = User.new
+    @client = Tumblr::Client.new
+    
   end
   
 end

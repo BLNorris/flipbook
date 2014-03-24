@@ -5,12 +5,29 @@ class UsersController < ApplicationController
     config.client_secret = ENV["INSTAGRAM_CLIENT_SECRET"]
   end
   
+  Tumblr.configure do |config|
+    config.consumer_key = ENV["TUMBLR_CLIENT_ID"]
+    config.consumer_secret = ENV["TUMBLR_CLIENT_SECRET"]
+    config.oauth_token = "access_token"
+    config.oauth_token_secret = "access_token_secret"
+  end
+  
   def connect
     redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
   end
   
   def callback
     response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
+    session[:access_token] = response.access_token
+    redirect :user
+  end
+  
+  def tumblr_connect
+    redirect Tumblr.authorize_url(:redirect_uri => CALLBACK_URL)
+  end
+  
+  def tumblr_callback
+    response = Tumblr.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
     session[:access_token] = response.access_token
     redirect :user
   end
@@ -30,7 +47,7 @@ class UsersController < ApplicationController
       
        redirect_to(:root)
      else
-       render "show"
+       render "new"
      end
   end
   
