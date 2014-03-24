@@ -1,4 +1,4 @@
-class FlipbooksController < ApplicationController
+class FlipbksController < ApplicationController
   def new
   end
 
