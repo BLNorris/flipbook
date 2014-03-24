@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       
        redirect_to(:root)
      else
-       render "show"
+       render "new"
      end
   end
   
