@@ -8,6 +8,9 @@ Flipbook::Application.routes.draw do
    get "/oauth/connect" => 'users#connect'
    get "/oauth/callback" => 'users#callback'
    
+   get "/oauth/tumblr_connect" => 'users#tumblr_connect'
+   get "/oauth/tumblr_callback" => 'users#tumblr_callback'
+   
    root :to => 'public#index'
 
   # The priority is based upon order of creation:

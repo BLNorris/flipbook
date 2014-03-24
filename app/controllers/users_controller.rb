@@ -8,8 +8,6 @@ class UsersController < ApplicationController
   Tumblr.configure do |config|
     config.consumer_key = ENV["TUMBLR_CLIENT_ID"]
     config.consumer_secret = ENV["TUMBLR_CLIENT_SECRET"]
-    config.oauth_token = "access_token"
-    config.oauth_token_secret = "access_token_secret"
   end
   
   def connect
@@ -23,13 +21,13 @@ class UsersController < ApplicationController
   end
   
   def tumblr_connect
-    redirect Tumblr.authorize_url(:redirect_uri => CALLBACK_URL)
+    redirect Tumblr.authorize_url(:redirect_uri => TUMBLR_CALLBACK_URL)
   end
   
   def tumblr_callback
-    response = Tumblr.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
+    response = Tumblr.get_access_token(params[:code], :redirect_uri => TUMBLR_CALLBACK_URL)
     session[:access_token] = response.access_token
-    redirect :user
+    redirect :profile
   end
   
   def index
