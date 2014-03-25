@@ -12,14 +12,13 @@
   </p>
   
   <p>
-    <%# collection_select(:person, :city_id, City.all, :id, :name) %>
-    
-    <%# collection_select(:photo, :city_id, , :id, :name) %>
+    <%= f.label :speed %>
+    <%= f.text_field :speed , :value => "150" %>
   </p>
 <p>
   <% User.find(session[:user_id]).photos.all.each do |p| %>
 
-    <%= image_tag(p.url, height: '62', width: '62') %>
+    <%= image_tag(p.url, height: '100', width: '100') %>
     <%= check_box_tag('photos[]', p.id ) %>
     <%= p.id   %>
   <% end %>

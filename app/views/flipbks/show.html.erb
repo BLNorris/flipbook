@@ -33,13 +33,24 @@
 <!-- This is the "share" button that is found in the private user profile, so that the user can share their public page via their private profile view -->
 <div class="fb-share-button" data-href="https://flipbook-ocs.herokuapp.com/public/show/<%= @user.id %>" data-width="55" data-type="button"></div>
 
+
+  <script type="text/javascript">
+    var index=0;
+    function changeBanner(){ 
+      [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
+      index = (index+1) % document.images.length;
+    }
+    window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
+  </script>
+  
+  <%#  %>
 <%= @user.name %>'s book <%= @book.name %>
 <br>
 <br>
 
 <% @book.photos.each do |p| %>
 
-  <%= image_tag(p.url, height: '62', width: '62') %>
+  <%= image_tag(p.url, height: '200', width: '200', hidden: true) %>
 
 <% end %>
 <%# link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
