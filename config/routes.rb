@@ -11,11 +11,11 @@ Flipbook::Application.routes.draw do
    get '/profile' => 'public#profile'
 
    
-   get '/photos' => 'photos#index', :as => :photos
+   get '/photos' => 'photos#feed', :as => :feed
    
    get '/oauth/connect' => 'users#connect'
    get '/oauth/callback' => 'users#callback'
-   get '/feed' => 'users#feed', :as => :feed # Temporary route.
+   # get '/feed' => 'users#feed', :as => :feed # Temporary route.
    
    root :to => 'public#index'
 
