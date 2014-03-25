@@ -11,11 +11,19 @@
     <%= f.text_field :description %>
   </p>
   
-  <% User.find(session[:user_id]).photos.all do |p| %>
   <p>
-    testing
+    <%# collection_select(:person, :city_id, City.all, :id, :name) %>
+    
+    <%# collection_select(:photo, :city_id, , :id, :name) %>
   </p>
+<p>
+  <% User.find(session[:user_id]).photos.all.each do |p| %>
+
+    <%= image_tag(p.url, height: '62', width: '62') %>
+    <%= check_box_tag('photo[]', p.id ) %>
+    
   <% end %>
+  </p>
   
   <%= f.submit %>
 <% end %>

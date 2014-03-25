@@ -7,8 +7,13 @@ class FlipbksController < ApplicationController
     @book.user_id = session[:user_id]
     
     if @book.save
+      
+      params[:photo].each do |p|
+        Photo.find(p).flipbk_id = @book.id
+      end
+      
      
-      redirect_to(flipbk_path(session[:user_id]))
+      redirect_to(flipbk_path(@book.id))
     else
       render "newtest"
     end
