@@ -42,14 +42,6 @@ class UsersController < ApplicationController
   def show
     # Connect w/ Instagram link in view.
   end
-  
-  # Temporary for testing.
-  # def feed
-#     @client = Instagram.client(:access_token => session[:access_token])
-#     @user = @client.user
-#     
-#     # redirect :photos
-#   end
 
   def update
   end

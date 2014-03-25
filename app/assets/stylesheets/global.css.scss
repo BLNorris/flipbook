@@ -1,0 +1,85 @@
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* -------------------------- */
+
+#top_bar{
+  background: #3A383D;
+  color: #7F7E7F;
+}
+
+#header_text{
+  float: left;
+}
+
+#login_box{
+  
+  
+}
+
+#social_media{
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+#social_media li{
+  display: inline;
+}
+#social_media a{
+  display: inline-block;
+  width: 30px;
+  height: 0;
+  padding-top: 30px;
+  overflow: hidden;
+}
+
+.facebook_icon{
+  background: url("http://placekitten.com/30/30");
+}
+.twitter_icon{
+  background: url("http://placekitten.com/45/45");
+}
+.tumblr{
+  background: url("http://placekitten.com/10/10");
+}
+
+/* -------------------------- */
+
+#home{
+  float: left;
+}
+
+#home a{
+  color: #000000;
+  text-decoration: none;
+}
+
+#links{
+  float: right;
+}
+
+#links li{
+  color: #000000;
+  display: inline;
+}
+
+#links li.selected{
+  background: #EF4440;
+  border-radius: 5px;
+}
+
+#links li.selected a{
+  color: #FFFFFF;
+}
+
+#links a{
+  color: #000000;
+  display: inline-block;
+  text-decoration: none;
+}

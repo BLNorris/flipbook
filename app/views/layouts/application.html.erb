@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- PUT OUTSIDE OF BODY TAG PLEASE -->
-<!-- initializes tumblr api -->
 <script src="http://platform.tumblr.com/v1/share.js"></script>
-<!-- tumblr end -->
 
 <head>
   <title>Flipbook</title>
@@ -12,77 +9,62 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   
-  <!-- INITIALIZES THE ACTUAL FACEBOOK API, DO NOT REMOVE -->
-  <!-- put inside of body tag -->
-  <div id="fb-root"></div>
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '{1492301310990221}',
-        status     : true,
-        xfbml      : true
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <!-- put inside of eventual body tag -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1492301310990221";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <!-- facebook end -->
-  
-  <header>
-    <% #make this a link %>
-    <h1 class="site_name">
-  FLIPBOOK
-    </h1>
+  <div id="container">
     
-    <div class="like_buttons">
-      <!-- FACEBOOK BUTTON -->
-      <div class="fb-like" data-href="https://flipbook-ocs.herokuapp.com/" data-width="55" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-      <!-- END FACEBOOK BUTTON -->
-      <!-- BEGIN TUMBLR BUTTON -->
-      <a href="http://www.tumblr.com/share/link?url=<?php echo urlencode(http://flipbook-ocs.herokuapp.com/) ?>&name=<?php echo urlencode(Flipbook) ?>&description=<?php echo urlencode(super cool fun stuff flipbook) ?>" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:129px; height:20px; background:url('http://platform.tumblr.com/v1/share_3.png') top left no-repeat transparent;">Share on Tumblr</a>
-      <!-- END TUMBLR BUTTON -->
-      <!-- HERE BEGINS THE TWITTER BUTTON -->
-      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      <!-- END TWITTER BUTTON -->
+    <div id="top_bar" class="clearfix">
+      <p id="header_text">
+        What should we say here?
+      </p>
+      
+      <div id="login_box">
+        <% if current_user %>
+          Welcome, <%= link_to(current_user.email, user_url(current_user.id)) %>!!!<br>
+          <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
+        <% else %>
+  
+        <%= link_to("Sign Up", :new_user) %> | 
+        <%= link_to("Log In", :new_login) %>
+  
+        <% end %>
+      </div>
+      
+      <div id="fb-root"></div>
+      
+      <ul id="social_media">
+        <li><a href="#" class="facebook_icon">Facebook</a></li>
+        <li><a href="#" class="twitter_icon">Twitter</a></li>
+        <li><a href="#" class="tumblr_icon">Tumblr</a></li>
+      </ul>
     </div>
     
-    <div class="login_box">
-<% if current_user %>
-  Welcome, <%= link_to(current_user.email, user_url(current_user.id)) %>!!!<br>
-  <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
-<% else %>
-  
-    <%= link_to("Sign Up", :new_user) %> | 
-    <%= link_to("Log In", :new_login) %>
-  
-<% end %>
+    <div id="top_nav" class="clearfix">
+      <div id="home">
+        <a href="#">flipbook</a>
+      </div>
+      
+      <ul id="links">
+        <li class="selected"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </div>
-  </header>
-
-  <%= yield %>
-
+    
+  </div>
+  
+  <div>
+    
+    <%= yield %> 
+    
+  </div>
+  
   <footer>
-    <h5>
-    Copyright 2014 Brandon, Britt, and Lochlan
-    </h5>
+    <p>
+    © 2014 filpbook, Inc. • Proudly built on the Silicon Prairie • Terms of service • Privacy Policy
+    </p>
   </footer>
+  
 </body>
 </html>

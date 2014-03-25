@@ -1,9 +1,8 @@
-
 header{
   width:90%;
   height:60px;
-  
 }
+
 .site_name_link{ 
   position:absolute; 
   width:100%;
@@ -11,38 +10,41 @@ header{
   top:0;
   left: 0;
   z-index: 1;
-}   
+}
+   
 .site_name{
   width:33%;
-   display:inline;
+  display:inline;
 }
+
 .like_buttons{
   width:33%;
   display:inline;
 }
+
 .login_box{
   width:33%;
-   display:inline;
-   float:right;
-   text-align:right;
+  display:inline;
+  float:right;
+  text-align:right;
 }
-
 
 .show_flipbk1{
   width:33%;
-   display:inline-block;
-   float:left;
-   text-align:left;
+  display:inline-block;
+  float:left;
+  text-align:left;
 }
+
 .show_flipbk2{
   width:33%;
-   display:inline-block;
-
-   text-align:center;
+  display:inline-block;
+  text-align:center;
 }
+
 .show_flipbk3{
   width:33%;
-   display:inline-block;
-   float:right;
-   text-align:right;
+  display:inline-block;
+  float:right;
+  text-align:right;
 }
