@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324205604) do
+ActiveRecord::Schema.define(:version => 20140325011854) do
 
   create_table "flipbks", :force => true do |t|
     t.integer  "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20140324205604) do
   end
 
   create_table "photos", :force => true do |t|
-    t.integer  "flipbook_id"
+    t.integer  "flipbk_id"
     t.string   "url"
     t.text     "description"
     t.datetime "created_at",  :null => false
