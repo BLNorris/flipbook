@@ -21,6 +21,9 @@ class FlipbksController < ApplicationController
   end
 
   def destroy
+    book = Flipbk.find(params[:id])
+    book.delete
+    redirect_to(flipbks_url)
   end
 
   def index

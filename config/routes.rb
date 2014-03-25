@@ -1,7 +1,10 @@
 Flipbook::Application.routes.draw do
    
    get 'flipbks/newtest' => 'flipbks#newtest'
-   resources :users, :flipbks, :logins
+   get 'flipbks/:id/addphoto/' => 'photos#add'
+   resources :users, :flipbks, :logins, :photos
+   
+   
    
    get 'profile/:id' => 'public#profile'
 

@@ -1,9 +1,17 @@
 class PhotosController < ApplicationController
   
+  def add
+    @photo = Photo.new
+  end
+  
+  
+  
   def new
   end
 
   def create
+    
+    
   end
 
   def update
