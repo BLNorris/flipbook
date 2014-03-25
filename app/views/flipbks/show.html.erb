@@ -1,37 +1,10 @@
-<!-- INITIALIZES THE ACTUAL FACEBOOK JS API, DO NOT REMOVE -->
-<!-- put inside of eventual body tag -->
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      // appId      : '{1492301310990221}',
-      status     : true,
-      xfbml      : true
-    });
-  };
+      
+      <!-- <ul id="social_media">
+        <li><div class="fb-like" data-href="https://flipbook-ocs.herokuapp.com/" data-width="55" data-layout="button"                  data-action="like" data-show-faces="false" data-share="false"></div></li>
+        <li><a href="http://www.tumblr.com/share/link?url=<?php echo urlencode(http://flipbook-ocs.herokuapp.com/)                     ?>&name=<?php echo urlencode(Flipbook) ?>&description=<?php echo urlencode(super cool fun stuff flipbook) ?>"              title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:129px;                    height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top center no-repeat                              transparent;">Share on Tumblr</a></li>
+        <li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></li>
+      </ul> -->
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- put inside of eventual body tag -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1492301310990221";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- THE FACEBOOK BUTTON ITSELF -->
-<!-- This is the "share" button that is found in the private user profile, so that the user can share their public page via their private profile view -->
-<div class="fb-share-button" data-href="https://flipbook-ocs.herokuapp.com/public/show/<%= @user.id %>" data-width="55" data-type="button"></div>
 
 <%= @user.name %>'s book <%= @book.name %>
 <br>
