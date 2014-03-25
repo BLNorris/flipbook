@@ -1,3 +1,16 @@
 <a href="/oauth/connect">Connect with Instagram</a>
 
 
+<a href="<%= new_flipbk_path %>">Create New Flipbook</a>
+
+
+
+<p><%= current_user.name %>'s Flipbooks:</p>
+
+<% @flipbks = Flipbk.all %>
+
+<% @flipbks.each do |f| %>
+  <div id="flipbook">
+    <%= link_to(f.name, flipbk_path(f.id)) %>
+  </div>
+<% end %>
