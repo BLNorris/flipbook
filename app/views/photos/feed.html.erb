@@ -1,7 +1,7 @@
 <!-- Name is being filled by Instagram username -->
 <h1><%= "#{@user.username}'s Instagram photos." %></h1>
   
-  <% for media_item in @client.user_media_feed %>
+  <% for media_item in @client.user_recent_media %>
     <%= image_tag(media_item.images.thumbnail.url) %>
   <% end %>
   
