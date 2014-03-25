@@ -1,4 +1,18 @@
+
 <p><%= @user.name %>'s Flipbook "<%= @book.name %>"</p>
+
+  <script type="text/javascript">
+    var index=0;
+    function changeBanner(){ 
+      [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
+      index = (index+1) % document.images.length;
+    }
+    window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
+  </script>
+  
+  <%#  %>
+<%= @user.name %>'s book <%= @book.name %>
+
 <br>
 <br>
 
