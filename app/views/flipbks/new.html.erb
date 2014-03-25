@@ -1,2 +1,29 @@
-<h1>Flipbooks#new</h1>
-<p>Find me in app/views/flipbooks/new.html.erb</p>
+<%= form_for @book do |f| %>
+  <%= f.hidden_field :user_id %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </p>
+  
+  <p>
+    <%# collection_select(:person, :city_id, City.all, :id, :name) %>
+    
+    <%# collection_select(:photo, :city_id, , :id, :name) %>
+  </p>
+<p>
+  <% User.find(session[:user_id]).photos.all.each do |p| %>
+
+    <%= image_tag(p.url, height: '62', width: '62') %>
+    <%= check_box_tag('photos[]', p.id ) %>
+    <%= p.id   %>
+  <% end %>
+  </p>
+  
+  <%= f.submit %>
+<% end %>
