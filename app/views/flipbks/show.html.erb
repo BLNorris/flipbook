@@ -40,7 +40,7 @@
       [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
       index = (index+1) % document.images.length;
     }
-    window.onload = function () {setInterval(changeBanner, 500)};
+    window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
   </script>
   
   <%#  %>
@@ -50,7 +50,7 @@
 
 <% @book.photos.each do |p| %>
 
-  <%= image_tag(p.url, height: '62', width: '62') %>
+  <%= image_tag(p.url, height: '200', width: '200', hidden: true) %>
 
 <% end %>
 <%# link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
