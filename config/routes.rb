@@ -2,6 +2,7 @@ Flipbook::Application.routes.draw do
    
    get 'flipbks/newtest' => 'flipbks#newtest'
    get 'flipbks/:id/addphoto/' => 'photos#add'
+      get '/photos' => 'photos#feed', :as => :feed
    resources :users, :flipbks, :logins, :photos
    
    
@@ -11,7 +12,7 @@ Flipbook::Application.routes.draw do
    get '/profile' => 'public#profile'
 
    
-   get '/photos' => 'photos#feed', :as => :feed
+
    
    get '/oauth/connect' => 'users#connect'
    get '/oauth/callback' => 'users#callback'

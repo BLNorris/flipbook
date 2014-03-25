@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+
+<!-- PUT OUTSIDE OF BODY TAG PLEASE -->
+<!-- initializes tumblr api -->
+<script src="http://platform.tumblr.com/v1/share.js"></script>
+<!-- tumblr end -->
+
 <head>
   <title>Flipbook</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,15 +13,60 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <!-- INITIALIZES THE ACTUAL FACEBOOK API, DO NOT REMOVE -->
+  <!-- put inside of body tag -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{1492301310990221}',
+        status     : true,
+        xfbml      : true
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- put inside of eventual body tag -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1492301310990221";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <!-- facebook end -->
+  
   <header>
     <% #make this a link %>
     <h1 class="site_name">
   FLIPBOOK
     </h1>
     
+    <div class="like_buttons">
+      <!-- FACEBOOK BUTTON -->
+      <div class="fb-like" data-href="https://flipbook-ocs.herokuapp.com/" data-width="55" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+      <!-- END FACEBOOK BUTTON -->
+      <!-- BEGIN TUMBLR BUTTON -->
+      <a href="http://www.tumblr.com/share/link?url=<?php echo urlencode(http://flipbook-ocs.herokuapp.com/) ?>&name=<?php echo urlencode(Flipbook) ?>&description=<?php echo urlencode(super cool fun stuff flipbook) ?>" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:129px; height:20px; background:url('http://platform.tumblr.com/v1/share_3.png') top left no-repeat transparent;">Share on Tumblr</a>
+      <!-- END TUMBLR BUTTON -->
+      <!-- HERE BEGINS THE TWITTER BUTTON -->
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <!-- END TWITTER BUTTON -->
+    </div>
+    
     <div class="login_box">
 <% if current_user %>
-  Welcome, <%= current_user.email %>!!!<br>
+  Welcome, <%= link_to(current_user.email, user_url(current_user.id)) %>!!!<br>
   <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
 <% else %>
   
@@ -30,7 +81,7 @@
 
   <footer>
     <h5>
-    cool footer text goes here
+    Copyright 2014 Brandon, Britt, and Lochlan
     </h5>
   </footer>
 </body>

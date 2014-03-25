@@ -11,6 +11,11 @@
     <%= f.text_field :description %>
   </p>
   
+  <% User.find(session[:user_id]).photos.all do |p| %>
+  <p>
+    testing
+  </p>
+  <% end %>
   
   <%= f.submit %>
 <% end %>

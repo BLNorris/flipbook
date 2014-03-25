@@ -1,3 +1,10 @@
-Welcome to flipbook
 
-Pus some public flipbooks here
+<% i = 0 %>
+<% @users.each do |u| %>
+  <% i += 1%>
+  <div class="show_flipbk<%= i %>">
+    <% #photo = u.photos.find(u.id) %>
+    <img src="<%= u.photos %>" alt="<%=u.name%>">
+  </div>
+  <% i = 0 if i == 3 %>
+<% end %>
