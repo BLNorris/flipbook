@@ -35,8 +35,15 @@
 
 <%= @user.name %>'s book <%= @book.name %>
 <br>
+<br>
 
-<%= link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
+<% @book.photos.each do |p| %>
+
+  <%= image_tag(p.url, height: '62', width: '62') %>
+
+<% end %>
+<%# link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
+
 <br>
 <br>
 <%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete ) %>

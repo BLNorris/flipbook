@@ -1,6 +1,5 @@
 Flipbook::Application.routes.draw do
    
-   get 'flipbks/newtest' => 'flipbks#newtest'
    get 'flipbks/:id/addphoto/' => 'photos#add'
       get '/photos' => 'photos#feed', :as => :feed
    resources :users, :flipbks, :logins, :photos

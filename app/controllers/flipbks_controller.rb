@@ -1,5 +1,6 @@
 class FlipbksController < ApplicationController
   def new
+        @book = Flipbk.new
   end
 
   def create
@@ -7,10 +8,16 @@ class FlipbksController < ApplicationController
     @book.user_id = session[:user_id]
     
     if @book.save
-     
-      redirect_to(flipbk_path(session[:user_id]))
+      
+      params[:photos].each do |p|
+        photo = Photo.find(p)
+        photo.flipbk_id = @book.id
+        photo.save
+      end
+      
+      redirect_to(flipbk_path(@book.id))
     else
-      render "newtest"
+      render "new"
     end
   end
 
@@ -35,9 +42,6 @@ class FlipbksController < ApplicationController
     @book = Flipbk.find(params[:id])
   end
   
-  def newtest
-    @book = Flipbk.new
-    
-  end
+
   
 end
