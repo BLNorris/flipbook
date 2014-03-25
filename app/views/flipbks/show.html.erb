@@ -35,4 +35,8 @@
 
 <%= @user.name %>'s book <%= @book.name %>
 <br>
-<%  %>
+
+<%= link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
+<br>
+<br>
+<%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete ) %>
