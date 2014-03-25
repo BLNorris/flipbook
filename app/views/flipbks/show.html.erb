@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 <p><%= @user.name %>'s Flipbook "<%= @book.name %>"</p>
+=======
+
+>>>>>>> 10e07154f6e5ef377b60ab2d256a55388cd90158
 <br>
 <br>
 
 <% @book.photos.each do |p| %>
 
-  <%= image_tag(p.url, height: '62', width: '62') %>
+  <%= image_tag(p.url, height: '200', width: '200', hidden: true) %>
 
 <% end %> 
 
