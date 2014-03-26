@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  CALLBACK_URL = "http://localhost:9292/oauth/callback"
+  CALLBACK_URL = ENV["INSTAGRAM_CALLBACK_URL"]
   
   Instagram.configure do |config|
     config.client_id = ENV["INSTAGRAM_CLIENT_ID"]
