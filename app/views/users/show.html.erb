@@ -1,27 +1,29 @@
-<div id="container">
-  <div id="connect_instagram">
-    <a href="/oauth/connect">Connect with Instagram</a>
-  </div>
+<div id="connect_instagram">
+  <a href="/oauth/connect">Connect with Instagram</a>
+</div>
 
-  <br>
-  <div id="new_flipbook">
-    <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
-  </div>
-  <br>
-  <br>
+<br>
+<div id="new_flipbook">
+  <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
+</div>
+<br>
+<br>
+<div id="view_public">
+  <%= link_to("View your public profile here", profile_url(current_user.id)) %>
+</div>
+<br>
+<br>
+<div id="show_flipbooks">
+  <p><%= current_user.name %>'s Flipbooks:</p>
 
-  <div id="show_flipbooks">
-    <p><%= current_user.name %>'s Flipbooks:</p>
+  <% @flipbks = User.find(session[:user_id]).flipbks.all %>
 
-    <% @flipbks = User.find(session[:user_id]).flipbks.all %>
-
-    <% @flipbks.each do |f| %>
-    <div id="flipbook">
-      <%= link_to(f.name, flipbk_path(f.id)) %>
-    </div>
-    <% end %>
+  <% @flipbks.each do |f| %>
+  <div id="flipbook">
+    <%= link_to(f.name, flipbk_path(f.id)) %>
   </div>
-  <div id="edit">
-    <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
-  </div>
+  <% end %>
+</div>
+<div id="edit">
+  <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
 </div>

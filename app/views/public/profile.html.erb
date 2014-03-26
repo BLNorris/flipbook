@@ -1,0 +1,11 @@
+<div id="show_flipbooks">
+  <p><%= User.find(params[:id]).name %>'s Flipbooks:</p>
+
+  <% @flipbks = User.find(params[:id]).flipbks.all %>
+
+  <% @flipbks.each do |f| %>
+  <div id="flipbook">
+    <%= link_to(f.name, flipbk_path(f.id)) %>
+  </div>
+  <% end %>
+</div>

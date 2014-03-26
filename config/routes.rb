@@ -4,9 +4,11 @@ Flipbook::Application.routes.draw do
    get '/photos' => 'photos#feed', :as => :feed
    resources :users, :flipbks, :logins, :photos
    
-   get 'profile/:id' => 'public#profile'
+   match 'users/:id' => 'users#show'
+   
+   get 'profile/:id' => 'public#profile', :as => :profile
 
-   get '/profile' => 'public#profile'
+   get '/profile/' => 'public#profile'
 
    get '/oauth/connect' => 'users#connect'
    get '/oauth/callback' => 'users#callback'
