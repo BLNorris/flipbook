@@ -1,11 +1,16 @@
-<div id="show_flipbooks">
-  <p><%= User.find(params[:id]).name %>'s Flipbooks:</p>
-
-  <% @flipbks = User.find(params[:id]).flipbks.all %>
-
-  <% @flipbks.each do |f| %>
-  <div id="flipbook">
-    <%= link_to(f.name, flipbk_path(f.id)) if f.public %>
+<div id="public" class="clearfix">
+  <div id="profile_glance" class="clearfix">
+    <%= gravatar_tag User.find(params[:id]), :size => 150 %>
   </div>
-  <% end %>
+  <div id="show_flipbooks" class="clearfix">
+    <p><%= User.find(params[:id]).name %>'s Flipbooks:</p>
+
+    <% @flipbks = User.find(params[:id]).flipbks.all %>
+
+    <% @flipbks.each do |f| %>
+    <div id="flipbook">
+      <%= link_to(f.name, flipbk_path(f.id)) if f.public %>
+    </div>
+    <% end %>
+  </div>
 </div>

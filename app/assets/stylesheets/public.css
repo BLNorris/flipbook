@@ -1,0 +1,16 @@
+#profile_glance{
+  display: block;
+  float: left;
+  margin: 25px;
+}
+
+#profile_glance img{
+  border-radius: 50px;
+}
+/*--------------------------------*/
+
+#show_flipbooks{
+  display: block;
+  float: left;
+  margin: 45px 60px;
+}
