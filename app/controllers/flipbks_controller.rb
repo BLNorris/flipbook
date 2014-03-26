@@ -8,13 +8,13 @@ class FlipbksController < ApplicationController
     @book.user_id = session[:user_id]
     
     if @book.save
-      
-      params[:photos].each do |p|
-        photo = Photo.find(p)
-        photo.flipbk_id = @book.id
-        photo.save
+      if params[:photos]      
+        params[:photos].each do |p|
+          photo = Photo.find(p)
+          photo.flipbk_id = @book.id
+          photo.save
+        end
       end
-      
       redirect_to(flipbk_path(@book.id))
     else
       render "new"
@@ -29,8 +29,11 @@ class FlipbksController < ApplicationController
 
   def destroy
     book = Flipbk.find(params[:id])
+    book.photos.each do |p|
+      p.flipbk_id = nil
+    end
     book.delete
-    redirect_to(flipbks_url)
+    redirect_to(:flipbks)
   end
 
   def index
