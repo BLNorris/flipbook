@@ -1,10 +1,15 @@
-<a href="/oauth/connect">Connect with Instagram</a>
-
-
-<a href="<%= new_flipbk_path %>">Create New Flipbook</a>
-
-
-
+<% #if !( session[:access_token] ) %>  
+  <div>
+    <p>Step 1:</p>
+    <a href="/oauth/connect">Connect with Instagram</a>
+  </div>
+<% #end %>  
+<br>
+<div>
+  <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
+</div>
+<br>
+<br>
 <p><%= current_user.name %>'s Flipbooks:</p>
 
 <% @flipbks = Flipbk.all %>
@@ -14,3 +19,7 @@
     <%= link_to(f.name, flipbk_path(f.id)) %>
   </div>
 <% end %>
+
+<div id="edit">
+  <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
+</div>
