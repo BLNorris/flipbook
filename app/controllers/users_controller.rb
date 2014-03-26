@@ -21,6 +21,9 @@ class UsersController < ApplicationController
 
   
   def index
+    if current_user
+      redirect_to(:flipbks)
+    end
   end
   
   def new
@@ -33,7 +36,11 @@ class UsersController < ApplicationController
      if @user.save
        session[:user_id] = @user.id # <- This is all "auto-login" is. Ha.
       
+<<<<<<< HEAD
        redirect_to user_url(@user.id)
+=======
+       redirect_to(:root)
+>>>>>>> a01ae725209d4e794a2562f90a43f2b679554a55
      else
        render "new"
      end
