@@ -14,18 +14,34 @@
   color: #7F7E7F;
 }
 
-#header_text{
+#home{
   float: left;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+#home a{
+  color: #FFFFFF;
+  font-family: 'Droid Sans Mono';
+  text-decoration: none;
 }
 
 #login_box{
-  
-  
+  float: right;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+#login_box a{
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  text-decoration: none;
 }
 
 #social_media{
   float: right;
-  margin: 0;
+  margin: 5px 10px 0 0;
   padding: 0;
 }
 #social_media li{
@@ -33,53 +49,27 @@
 }
 #social_media a{
   display: inline-block;
-  width: 30px;
+  width: 24px;
   height: 0;
-  padding-top: 30px;
+  padding-top: 24px;
   overflow: hidden;
 }
 
 .facebook_icon{
-  background: url("http://placekitten.com/30/30");
+  background: url("http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Facebook-alt-1-Metro-icon.png");
 }
 .twitter_icon{
-  background: url("http://placekitten.com/45/45");
+  background: url("http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Twitter-alt-2-Metro-icon.png");
 }
-.tumblr{
-  background: url("http://placekitten.com/10/10");
+.tumblr_icon{
+  background: url("http://icons.iconarchive.com/icons/danleech/simple/24/tumblr-icon.png");
 }
 
 /* -------------------------- */
 
-#home{
-  float: left;
-}
-
-#home a{
-  color: #000000;
-  text-decoration: none;
-}
-
-#links{
-  float: right;
-}
-
-#links li{
-  color: #000000;
-  display: inline;
-}
-
-#links li.selected{
-  background: #EF4440;
-  border-radius: 5px;
-}
-
-#links li.selected a{
-  color: #FFFFFF;
-}
-
-#links a{
-  color: #000000;
-  display: inline-block;
-  text-decoration: none;
+footer {
+	text-align: center;
+	font-color: #FFFFFF;
+  font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
 }
