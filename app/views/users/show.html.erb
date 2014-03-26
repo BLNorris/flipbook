@@ -1,25 +1,27 @@
-<% #if !( session[:access_token] ) %>  
-  <div>
-    <p>Step 1:</p>
+<div id="container">
+  <div id="connect_instagram">
     <a href="/oauth/connect">Connect with Instagram</a>
   </div>
-<% #end %>  
-<br>
-<div>
-  <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
-</div>
-<br>
-<br>
-<p><%= current_user.name %>'s Flipbooks:</p>
 
-<% @flipbks = Flipbk.all %>
-
-<% @flipbks.each do |f| %>
-  <div id="flipbook">
-    <%= link_to(f.name, flipbk_path(f.id)) %>
+  <br>
+  <div id="new_flipbook">
+    <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
   </div>
-<% end %>
+  <br>
+  <br>
 
-<div id="edit">
-  <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
+  <div id="show_flipbooks">
+    <p><%= current_user.name %>'s Flipbooks:</p>
+
+    <% @flipbks = User.find(session[:user_id]).flipbks.all %>
+
+    <% @flipbks.each do |f| %>
+    <div id="flipbook">
+      <%= link_to(f.name, flipbk_path(f.id)) %>
+    </div>
+    <% end %>
+  </div>
+  <div id="edit">
+    <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
+  </div>
 </div>

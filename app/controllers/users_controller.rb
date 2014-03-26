@@ -33,7 +33,7 @@ class UsersController < ApplicationController
      if @user.save
        session[:user_id] = @user.id # <- This is all "auto-login" is. Ha.
       
-       redirect_to(:user)
+       redirect_to user_url(@user.id)
      else
        render "new"
      end
