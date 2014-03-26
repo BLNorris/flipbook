@@ -1,5 +1,15 @@
-#tagline{
-  margin-left: 200px;
+#main{
+  margin-top: 20px;
+}
+
+#main_left{
+  float: left;
+  margin-left: 20%;
+}
+
+#main_right{
+  float: right;
+  margin-right: 20%;
 }
 
 #tagline h1{
@@ -15,10 +25,6 @@
   font-size: 15px;
   padding-left: 5px;
   margin-bottom: 20px;
-}
-
-#hp_form{
-  margin-left: 200px;
 }
 
 #hp_form p{
@@ -54,7 +60,11 @@
   list-style-type: none;
 }
 
-label{
+#form_field{
+  padding-left: 0px;
+}
+
+#signup_form label{
   width: 4em;
   float: left;
   text-align: left;
@@ -63,11 +73,45 @@ label{
   display: block
 }
 
-.button{
+#signup_form .button{
   float: right;
   margin-right: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
+}
+
+/* -------------------------- */
+
+#hp_flipbk{
+  border-style: solid;
+  width: 300px;
+  height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------- */
+
+#midline{
+  background: #3A383D;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
 }
 
 
