@@ -8,6 +8,9 @@
 </div>
 <br>
 <br>
+<%= gravatar_tag User.find(params[:id]) %>
+<br>
+<br>
 <div id="view_public">
   <%= link_to("View your public profile here", profile_url(current_user.id)) %>
 </div>
