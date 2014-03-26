@@ -1,32 +1,42 @@
-<div id="connect_instagram">
-  <a href="/oauth/connect">Connect with Instagram</a>
-</div>
+<div id="container" class="clearfix">
 
-<br>
-<div id="new_flipbook">
-  <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
-</div>
-<br>
-<br>
-<%= gravatar_tag User.find(params[:id]) %>
-<br>
-<br>
-<div id="view_public">
-  <%= link_to("View your public profile here", profile_url(current_user.id)) %>
-</div>
-<br>
-<br>
-<div id="show_flipbooks">
-  <p><%= current_user.name %>'s Flipbooks:</p>
-
-  <% @flipbks = User.find(session[:user_id]).flipbks.all %>
-
-  <% @flipbks.each do |f| %>
-  <div id="flipbook">
-    <%= link_to(f.name, flipbk_path(f.id)) %>
+  <div id="profile_glance" class="clearfix">
+    <%= gravatar_tag User.find(params[:id]), :size => 150 %>
   </div>
-  <% end %>
-</div>
-<div id="edit">
-  <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
+  <div id="show_flipbooks" class="clearfix">
+
+    <p><%= current_user.name %>'s Flipbooks:</p>
+
+    <% @flipbks = User.find(session[:user_id]).flipbks.all %>
+    <% @flipbks.each do |f| %>
+    <div id="flipbook">
+      <%= link_to(f.name, flipbk_path(f.id)) %>
+    </div>
+    <% end %>
+
+  </div>
+
+  <div id="profile_links" class="clearfix">
+    <ul id="profile_links_1">
+      <li id="connect_instagram">
+        <%= image_tag "instagram-icon.png" %>
+        <a href="/oauth/connect">Connect with Instagram</a>
+      </li>
+
+      <li>
+        <a href="<%= new_flipbk_path %>">Create New Flipbook</a>
+      </li>
+    </ul>
+    
+    <ul id="profile_links_2">
+      <li id="view_public">
+        <%= link_to("View your public profile here", profile_url(current_user.id)) %>
+      </li>
+
+      <li>
+        <%= link_to("Edit your profile", edit_user_url(session[:user_id])) %>
+      </li>
+    </ul>
+    
+  </div>
 </div>

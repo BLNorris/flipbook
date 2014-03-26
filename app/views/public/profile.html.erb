@@ -5,7 +5,7 @@
 
   <% @flipbks.each do |f| %>
   <div id="flipbook">
-    <%= link_to(f.name, flipbk_path(f.id)) %>
+    <%= link_to(f.name, flipbk_path(f.id)) if f.public %>
   </div>
   <% end %>
 </div>
