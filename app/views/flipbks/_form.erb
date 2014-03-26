@@ -12,8 +12,9 @@
   </p>
   
   <p>
-    <%= f.label :speed %>
-    <%= f.text_field :speed , :value => "150" %>
+    <%= f.label :speed %>(in ms)
+    <% spd = @book.speed || 200 %>
+    <%= f.text_field :speed , :value => spd %>
   </p>
   
   <p>
@@ -22,11 +23,12 @@
   </p>
 <p>
   <% User.find(session[:user_id]).photos.all.each do |p| %>
-    
+    <div class="photos_new">
+      <label for="<%= p.id %>">
       <%= image_tag(p.url, height: '100', width: '100') %>
-      <%= check_box_tag('photos[]', p.id ) %>
-      <%= p.id   %>
-    
+      <%= check_box_tag('photos[]', p.id, ((p.flipbk_id == @book.id)? true : false), :id => "#{p.id}" ) %>
+      </label>
+    </div>
   <% end %>
   </p>
   
