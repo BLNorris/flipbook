@@ -9,12 +9,24 @@
 <% end %> -->
 <!DOCTYPE html>
 <html>
-
 <body>
+  
 <div id="tagline">
     <h1>flipbook</h1>
     <h2>Animate your process.</h2>
 </div>
-</body>
 
+<div id="container">
+  
+  <div id="hp_form" class="clearfix">
+    <% if !current_user %>
+      <%= render :partial => "form" %>
+    <% else %>
+      <p><%= current_user.name %>,<%= link_to("see your flipbooks >", user_url(current_user.id)) %></p>
+    <% end %>
+  </div>
+  
+</div>
+
+</body>
 </html>

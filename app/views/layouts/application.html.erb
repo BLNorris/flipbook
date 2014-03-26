@@ -17,17 +17,17 @@
     
     <div id="top_bar" class="clearfix">
       <div id="home">
-        <a href="#">flipbook</a>
+        <%= link_to("flipbook", :root) %>
       </div>
       
       <div id="login_box">
         <% if current_user %>
-          Welcome, <%= link_to(current_user.email, user_url(current_user.id)) %>!!!<br>
+          <%= link_to("Profile", user_url(current_user.id)) %> |
           <%= link_to("Log Out", login_path(current_user.id), :method => :delete) %>
         <% else %>
   
-        <a href="#"><%= link_to("Sign Up", :new_user) %></a> | 
-        <a href="#"><%= link_to("Log In", :new_login) %></a>
+        <!-- <a href="#"><%= link_to("Sign Up", :new_user) %></a> |  -->
+        <%= link_to("Log In", :new_login) %>
   
         <% end %>
       </div>
