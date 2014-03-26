@@ -16,14 +16,16 @@
     <h2>Animate your process.</h2>
 </div>
 
-<div class="signup_form">
+<div id="container">
   
+  <div id="hp_form" class="clearfix">
     <% if !current_user %>
       <%= render :partial => "form" %>
     <% else %>
-      <%= link_to(current_user.name, user_url(current_user.id)) %>
+      <p><%= current_user.name %>,<%= link_to("see your flipbooks >", user_url(current_user.id)) %></p>
     <% end %>
-    
+  </div>
+  
 </div>
 
 </body>
