@@ -37,13 +37,20 @@ class UsersController < ApplicationController
        session[:user_id] = @user.id # <- This is all "auto-login" is. Ha.
       
        redirect_to(:root)
+
      else
        render "new"
      end
   end
   
   def show
-    # Connect w/ Instagram link in view.
+    if params[:id].to_s == session[:user_id].to_s
+      # Connect w/ Instagram link in view. <SHOULD HAPPEN
+    else
+      redirect_to profile_url params[:id].to_i
+    end
+    
+    
   end
 
   def update

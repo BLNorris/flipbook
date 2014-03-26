@@ -21,6 +21,8 @@
 
 <p><%= @book.description %></p>
 
+
+
 <% if current_user && current_user.id == @book.user_id %>
   <%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %>
 
@@ -30,3 +32,4 @@
 <% else %>
 
 <% end %>
+
