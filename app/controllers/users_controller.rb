@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     response = Instagram.get_access_token(params[:code], :redirect_uri => ENV["INSTAGRAM_CALLBACK_URL"])
     session[:access_token] = response.access_token
 
-    redirect_to(:feed)
+    redirect_to(:flipbks)
   end
 
   

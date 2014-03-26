@@ -1,6 +1,3 @@
-
-<p><%= @user.name %>'s Flipbook "<%= @book.name %>"</p>
-
   <script type="text/javascript">
     var index=0;
     function changeBanner(){ 
@@ -11,20 +8,25 @@
   </script>
   
   <%#  %>
-<%= @user.name %>'s book <%= @book.name %>
+<%= @book.user.name %>'s book <%= @book.name %>
 
 <br>
 <br>
 
 <% @book.photos.each do |p| %>
 
-  <%= image_tag(p.url, height: '200', width: '200', hidden: true) %>
+  <%= image_tag(p.url, height: '450', width: '450', hidden: true) %>
 
 <% end %> 
 
 <p><%= @book.description %></p>
-<%# link_to("Add photo", "/flipbks/#{@book.id}/addphoto") %>
 
-<br>
-<br>
-<%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete ) %>
+<% if current_user && current_user.id == @book.user_id %>
+  <%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %>
+
+  <%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete ) %>
+
+  <%= link_to("Back to list", :flipbks) %>
+<% else %>
+
+<% end %>
