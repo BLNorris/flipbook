@@ -1,16 +1,18 @@
 <body>
-  <div id="flipbook_index">
-    <h2>Here are your flipbooks</h2>
+  <div id="fb_main">
+    <div id="flipbook_index">
+      <h2>Your flipbooks</h2>
   
-    <div id="flipbook_index_list">
-      <% @user.flipbks.each do |book| %>
-      <p>
-        <%= link_to(book.name, flipbk_path(book.id)) %>
-      </p>
-      <% end %>
-    </div>
-    <div id="link_new_flipbook">
-      <%= link_to('Create new Flipbook', '/flipbks/new') %>
+      <div id="flipbook_index_list">
+        <% @user.flipbks.each do |book| %>
+        <p>
+          <%= link_to(book.name, flipbk_path(book.id)) %>
+        </p>
+        <% end %>
+      </div>
+      <div id="link_new_flipbook">
+        <%= link_to('Create flipbook', '/flipbks/new') %>
+      </div>
     </div>
   </div>
 </body>
