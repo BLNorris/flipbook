@@ -1,0 +1,46 @@
+#profile_glance{
+  display: block;
+  float: left;
+  margin: 25px;
+}
+
+#profile_glance img{
+  border-radius: 50px;
+}
+/*--------------------------------*/
+
+#show_flipbooks{
+  display: block;
+  float: left;
+  margin: 59px 60px;
+}
+
+
+
+/*--------------------------------*/
+
+
+
+#profile_links{
+  float: left;
+  margin: 45px 60px;
+}
+
+#profile_links li{
+  display: inline;
+}
+
+#profile_links_1{
+  margin: 10 15 30 20;
+}
+
+#connect_instagram img{
+  width: 25px;
+}
+
+#connect_instagram{
+  margin-right: 17px;
+}
+#view_public{
+  margin-right: 11px;
+}

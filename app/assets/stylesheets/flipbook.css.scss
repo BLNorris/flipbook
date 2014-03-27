@@ -1,0 +1,49 @@
+#flipbook_index{
+  border-style: solid;
+  width: 300px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 5px;
+  margin: 50px 38%;
+}
+
+#flipbook_index_list{
+  border-style:none none none solid;
+  margin-left: 7px;
+  padding-left:5px;
+}
+
+
+/*------------------------------------------------*/
+#new_flipbook_form{
+  border-style: solid;
+  width: 700px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 5px;
+}
+
+#new_flipbook_form li{
+  list-style-type: none;
+}
+
+#flipbook_fields{
+  margin: auto;
+}
+
+#new_flipbook_form label{
+  width: 6em;
+  float: left;
+  text-align: left;
+  padding-top: 2px;
+  margin-right: 20px;
+}
+
+#new_flipbook_form .button{
+  float: left;
+  margin-right: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}

@@ -1,36 +1,45 @@
-<%= form_for @book do |f| %>
-  <%= f.hidden_field :user_id %>
+<div id="new_flipbook_form">
+  <ul id="flipbook_fields" class="clearfix">
+    <%= form_for @book do |f| %>
+    <%= f.hidden_field :user_id %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
   
-  <p>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p>
   
-  <p>
-    <%= f.label :speed %>(in ms)
-    <% spd = @book.speed || 200 %>
-    <%= f.text_field :speed , :value => spd %>
-  </p>
+    <p>
+      <%= f.label :speed %>(in ms)
+      <% spd = @book.speed || 200 %>
+      <%= f.text_field :speed , :value => spd %>
+    </p>
   
-  <p>
-    <%= f.label :public %>
-    <%= f.check_box :public %>
-  </p>
-<p>
-  <% User.find(session[:user_id]).photos.all.each do |p| %>
-    <div class="photos_new">
-      <label for="<%= p.id %>">
-      <%= image_tag(p.url, height: '100', width: '100') %>
-      <%= check_box_tag('photos[]', p.id, (((p.flipbk_id == @book.id)&& p.flipbk_id != nil)? true : false), :id => "#{p.id}" ) %>
-      </label>
-    </div>
+    <p>
+      <%= f.label :public %>
+      <%= f.check_box :public %>
+    </p>
+    <p>
+      <% User.find(session[:user_id]).photos.all.each do |p| %>
+      <div class="photos_new">
+        <label for="<%= p.id %>">
+          <%= image_tag(p.url, height: '100', width: '100') %>
+          <%= check_box_tag('photos[]', p.id, (((p.flipbk_id == @book.id)&& p.flipbk_id != nil)? true : false), :id => "#{p.id}" ) %>
+        </label>
+      </div>
+      <% end %>
+    </p>
+
+  </div>
+  <div >
+    <%= f.submit "Create New Flipbook", :class => ".button" %>
+  </div>
+
   <% end %>
-  </p>
   
-  <%= f.submit %>
-<% end %>
+
+</div>
