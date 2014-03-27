@@ -44,3 +44,7 @@ gem 'gravatarify', '~> 3.0.0'
 
 gem 'instagram'
 gem 'dotenv'
+
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'aws-s3'

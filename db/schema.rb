@@ -11,17 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140327190908) do
+ActiveRecord::Schema.define(:version => 20140327195614) do
 
   create_table "flipbks", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "speed"
     t.boolean  "public"
     t.string   "url"
+    t.string   "display_file_name"
+    t.string   "display_content_type"
+    t.integer  "display_file_size"
+    t.datetime "display_updated_at"
   end
 
   create_table "photos", :force => true do |t|
