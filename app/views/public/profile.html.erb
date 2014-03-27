@@ -42,7 +42,7 @@
   
   <div id="show_flipbooks" class="clearfix">
 
-    <p>Your flipbooks:</p>
+    <p><%= current_user.name %>'s flipbooks:</p>
 
     <% @flipbks = User.find(session[:user_id]).flipbks.all %>
     <% @flipbks.each do |f| %>
