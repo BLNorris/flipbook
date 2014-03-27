@@ -6,7 +6,8 @@
       <% @user.flipbks.each do |book| %>
 
       <p>
-        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "80x80"), flipbk_path(book.id)) %>
+        <% book.delete if book.photos.all.empty? %>
+        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "80x80"), flipbk_path(book.id)) if !(book.photos.all.empty?) %>
       </p>
 
       <% end %>
