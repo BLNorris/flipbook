@@ -15,6 +15,7 @@ class FlipbksController < ApplicationController
           photo.save
         end
       end
+
       redirect_to(flipbk_path(@book.id))
     else
       render "new"
