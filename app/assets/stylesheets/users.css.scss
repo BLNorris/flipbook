@@ -1,37 +1,49 @@
-#profile_glance{
-  display: block;
-  float: left;
-  margin: 25px;
+#profile{
+  margin-top: 20px;
 }
 
-#profile_glance img{
-  border-radius: 50px;
-}
-/*--------------------------------*/
-
-#show_flipbooks{
-  display: block;
+#profile_left{
   float: left;
-  margin: 45px 60px;
+  margin-left: 20%;
 }
 
+#profile_right{
+  float: right;
+  margin-right: 40%;
+}
 
+#avatar{
+  padding-top: 20px;
+  width: 150px;
+  height: 150px;
+}
 
-/*--------------------------------*/
+#avatar img{
+  border-radius: 25px;
+}
 
-
-
-#profile_links{
-  float: left;
-  margin: 45px 60px;
+#name h2{
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin-left: 15px;
 }
 
 #profile_links li{
-  display: inline;
+  list-style-type: none;
+  margin-left: -20px;
+  padding-top: 5px;
 }
 
-#profile_links_1{
-  margin: 10 15 30 20;
+#profile_links a{
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#profile_links a:hover{
+  color: #2B72A8;
 }
 
 #connect_instagram img{
@@ -41,6 +53,31 @@
 #connect_instagram{
   margin-right: 17px;
 }
+
 #view_public{
   margin-right: 11px;
 }
+
+/*--------------------------------*/
+
+#show_flipbooks{
+  display: block;
+  float: left;
+  margin-left: 20%;;
+}
+
+#show_flipbooks p{
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
