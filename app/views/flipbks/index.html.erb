@@ -6,13 +6,14 @@
       <div id="flipbook_index_list">
         <% @user.flipbks.each do |book| %>
         <p>
-          <%= link_to(book.name, flipbk_path(book.id)) %>
+          <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "80x80"),                        flipbk_path(book.id)) %>
         </p>
         <% end %>
       </div>
       <div id="link_new_flipbook">
         <%= link_to('Create flipbook', '/flipbks/new') %>
       </div>
+
     </div>
   </div>
 </body>
