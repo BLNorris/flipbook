@@ -19,7 +19,6 @@
       <ul id="profile_links">
         
         <li id="connect_instagram">
-          <%= image_tag "instagram-icon.png" %>
           <a href="/oauth/connect">Connect with Instagram</a>
         </li>
 
@@ -42,7 +41,7 @@
   
   <div id="show_flipbooks" class="clearfix">
 
-    <p>Your Flipbooks:</p>
+    <p>Your flipbooks:</p>
 
     <% @flipbks = User.find(session[:user_id]).flipbks.all %>
     <% @flipbks.each do |f| %>

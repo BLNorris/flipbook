@@ -31,21 +31,22 @@
   margin-left: 15px;
 }
 
-#profile_links li{
+#public_links li{
   list-style-type: none;
   margin-left: -20px;
   padding-top: 5px;
 }
 
-#profile_links a{
-  color: #000000;
+#public_links a{
+  color: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   text-decoration: none;
 }
 
-#profile_links a:hover{
-  color: #2B72A8;
+.hiddenlink {
+  text-decoration: none;
+  cursor: text;
 }
 
 /*--------------------------------*/
@@ -60,6 +61,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
+
 
 
 
