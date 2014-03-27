@@ -43,12 +43,14 @@
 
     <p>Your flipbooks:</p>
 
-    <% @flipbks = User.find(session[:user_id]).flipbks.all %>
-    <% @flipbks.each do |f| %>
-    <div id="flipbook">
-      <%= link_to(f.name, flipbk_path(f.id)) %>
+    <div id="flipbook_index_list">
+      <% @user.flipbks.each do |book| %>
+    <p>
+      <% book.delete if book.photos.all.empty? %>
+      <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "120x120"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
+    </p>
+      <% end %>
     </div>
-    <% end %>
 
   </div>
   
