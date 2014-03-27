@@ -30,7 +30,7 @@
       <div class="photos_new">
         <label for="<%= p.id %>">
           <%= image_tag(p.url, height: '100', width: '100') %>
-          <%= check_box_tag('photos[]', p.id, (((p.flipbk_id == @book.id)&& p.flipbk_id != nil)? true :                 false), :id => "#{p.id}" ) %>
+          <%= check_box_tag('photos[]', p.id, (((p.flipbk_id == @book.id)&& p.flipbk_id != nil)?              true : false), :id => "#{p.id}" ) %>
         </label>
       </div>
       <% end %>

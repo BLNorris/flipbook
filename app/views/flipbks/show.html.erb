@@ -29,9 +29,9 @@
     
     <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-    <li><%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete, :class => :margin ) %></li>
+    <li><%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete, :class =>             :margin ) %></li>
 
-    <li><%= link_to("Back to list", :flipbks,:class => :margin) %></li>
+    <li><%= link_to("Back to list", user_url(current_user.id), :class => :margin) %></li>
     <% else %>
 
     <% end %>
