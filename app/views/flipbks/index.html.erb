@@ -2,7 +2,7 @@
   <div id="flipbook_index">
     <h2>Here are your flipbooks</h2>
   
-    <div id="flipbooks">
+    <div id="flipbook_index_list">
       <% @user.flipbks.each do |book| %>
       <p>
         <%= link_to(book.name, flipbk_path(book.id)) %>
