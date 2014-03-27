@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  RAILS_ROOT = "." || RAILS_ROOT
+  
+  
   def authorize
     if current_user.nil?
       redirect_to :new_login

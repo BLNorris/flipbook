@@ -8,13 +8,25 @@ class FlipbksController < ApplicationController
     @book.user_id = session[:user_id]
     
     if @book.save
+      dir = "#{RAILS_ROOT}/tmp/#{@book.id}/"
       if params[:photos]      
         params[:photos].each do |p|
           photo = Photo.find(p)
           photo.flipbk_id = @book.id
           photo.save
+
+          Dir.mkdir(dir) unless File.exists?(dir)
+          open("#{dir}image#{photo.id}.png", 'wb') do |file|
+            puts "#{dir}image#{photo.id}.png"
+            
+            file << open(photo.url).read
+          end
         end
       end
+      speed = @book.speed / 10
+      system("convert -delay #{speed} #{dir}*.png #{dir}flipbook.gif ")
+      
+      #FileUtils.remove_dir(dir,true)
       redirect_to(flipbk_path(@book.id))
     else
       render "new"
@@ -32,6 +44,8 @@ class FlipbksController < ApplicationController
           p.flipbk_id = nil
           p.save
         end
+
+        
       end
       if params[:photos]      
         params[:photos].each do |p|
@@ -73,7 +87,7 @@ class FlipbksController < ApplicationController
     @book = Flipbk.find(params[:id])
     
     if @book.public?
-      puts "ITS PUBLIC YO"
+
     
     else
       if current_user &&@book.user.id == current_user.id
