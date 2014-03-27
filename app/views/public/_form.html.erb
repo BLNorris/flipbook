@@ -1,9 +1,12 @@
+<div id="errors">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |error_msg| %>
-      <p><%= error_msg %></p>
+        <% @user.errors.full_messages.each do |error_msg| %>
+          <p><%= error_msg %></p>
+        <% end %>
   <% end %>
-<% end %>
+</div>
+
 
 <div id="signup_form">
 <ul id="signup_fields">
@@ -29,9 +32,11 @@
   <%= f.submit "Sign Up", :class => 'button' %>
 </ul>
 </div>
-  
-  
+
 <% end %>
+  
+  
+
 
 
 
