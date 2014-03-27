@@ -1,15 +1,17 @@
 #profile{
   margin-top: 20px;
+  max-width: 700px;
+  margin: 50px auto 50px auto;
 }
 
 #profile_left{
   float: left;
-  margin-left: 20%;
+  margin-left: 50px;
 }
 
 #profile_right{
   float: right;
-  margin-right: 40%;
+  margin-right: 250px;
 }
 
 #avatar{
@@ -62,8 +64,7 @@
 
 #show_flipbooks{
   display: block;
-  float: left;
-  margin-left: 20%;;
+  clear: both;
 }
 
 #show_flipbooks p{
