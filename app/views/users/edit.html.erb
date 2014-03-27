@@ -1,3 +1,49 @@
-<h1>Edit your info</h1>
+<div id="main" class="clearfix">
+  
+  <div id="main_left">
+    <div id="signup">
+        <div id="hp_form">
+          <h2>Edit Profile</h2>
+          <div id="errors">
+          <%= form_for @user do |f| %>
+            <% if @user.errors.any? %>
+                  <% @user.errors.full_messages.each do |error_msg| %>
+                    <li><%= error_msg %></li>
+                  <% end %>
+            <% end %>
+          </div>
 
-<%= render :partial => "form" %>
+          <div id="signup_form">
+          <ul id="signup_fields">
+            <li>
+              <%= f.label "Name" %>
+              <%= f.text_field :name %>
+            </li>
+  
+            <li>
+              <%= f.label "Email" %>
+              <%= f.text_field :email %>
+            </li>
+  
+            <li>
+              <%= f.label "Password" %>
+              <%= f.password_field :password %>
+            </li>
+  
+            <li>
+              <%= f.label "Confirm" %>
+              <%= f.password_field :password_confirmation %>
+            </li>
+            <%= f.submit "Save", :class => 'button' %>
+          </ul>
+          </div>
+
+          <% end %>
+        </div> 
+    </div>
+  </div>
+  
+</div>
+
+
+
