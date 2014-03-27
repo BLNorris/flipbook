@@ -19,20 +19,20 @@
         <ul id="public_links">
         
           <li id="connect_instagram">
-            <a href="/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with            Instagram</a>
+            <a href="/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with Instagram</a>
           </li>
 
           <li>
-            <a href="<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return                        true;">Create New Flipbook</a>
+            <a href="<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return true;">Create New Flipbook</a>
           </li>
    
           <li id="view_public">
-            <%= link_to("Your Public Profile", profile_url(current_user.id), html_options = {:class =>                  "hiddenlink", :onmouseover => "self.status='';return true;"})
+            <%= link_to("Your Public Profile", profile_url(current_user.id), html_options = {:class =>"hiddenlink", :onmouseover => "self.status='';return true;"})
             %>
           </li>
 
           <li>
-            <%= link_to("Edit Your Profile", edit_user_url(session[:user_id]), html_options = {:class =>                  "hiddenlink", :onmouseover => "self.status='';return true;"}) %>
+            <%= link_to("Edit Your Profile", edit_user_url(session[:user_id]), html_options = {:class =>"hiddenlink", :onmouseover => "self.status='';return true;"}) %>
           </li>
         
         </ul>
@@ -41,13 +41,13 @@
 
   
     
-    <div id="flipbook_index_list">
+    <div id="show_flipbooks">
       <p><%= @user.name %>'s Public Flipbooks:</p>
       <% @user.flipbks.each do |book| %>
       <p>
         <% book.delete if book.photos.all.empty? %>
         <% if book.public %>
-        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "120x120"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
+        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "120x120"), flipbk_path(book.id)) if !(book.photos.all.empty?) %>
         <% end %>
       </p>
       <% end %>
