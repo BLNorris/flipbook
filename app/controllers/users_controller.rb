@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @user = User.find(session[:user_id])
     if params[:id].to_s == session[:user_id].to_s
       # Connect w/ Instagram link in view. <SHOULD HAPPEN
     else
