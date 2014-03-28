@@ -63,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    redirect_to(user_url(current_user.id))
   end
 
   def edit
