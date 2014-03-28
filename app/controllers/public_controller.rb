@@ -7,11 +7,9 @@ class PublicController < ApplicationController
     Flipbk.all.each do |f|
       if f.public
         @public_flipbks << f
-        puts "FOUND PUBLIC ONE WOOOO"
       end
-      puts "LOOPING THRU BOOKS"
     end
-    puts "WTF YO!!!!"
+
     
   end
   

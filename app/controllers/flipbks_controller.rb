@@ -17,11 +17,13 @@ class FlipbksController < ApplicationController
           photo = Photo.find(p)
           photo.flipbk_id = @book.id
           photo.save
-
-          Dir.mkdir(dir) unless File.exists?(dir)
-          open("#{dir}image#{photo.id}.png", 'wb') do |file|
-          file << open(photo.url).read
-          end
+        end
+      end
+      sorted = @book.photos.sort_by &:order
+      sorted.each_with_index do |photo, index| 
+        Dir.mkdir(dir) unless File.exists?(dir)
+        open("#{dir}image#{photo.order}.png", 'wb') do |file|
+        file << open(photo.url).read
         end
       end
       

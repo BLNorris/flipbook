@@ -55,15 +55,16 @@
     <h3>Discover our flipbooks.</h3>
   </div>
   
-  
-  <div id="public_flipbks">
-    <% @public_flipbks.each do |f| %>
-      <div class="flipbook">
-        <a rel="facebox" href="<%= f.url %>">
-          <img src="<%= f.photos.all.first.url %>" width="200" height="200"></img>
-        </a>
-      </div>
-    <% end %>
+  <div id="show_flipbooks" class="clearfix">
+    <div id="flipbook_index_list">
+      <% @public_flipbks.each do |f| %>
+        <li class="flipbook">
+          <a rel="facebox" href="<%= f.url %>">
+            <img src="<%= f.photos.all.first.url %>" width="200" height="200"></img>
+          </a>
+        </li>
+      <% end %>
+    </div>
   </div>
 </body>
 </html>
