@@ -45,10 +45,10 @@
 
     <div id="flipbook_index_list">
       <% @user.flipbks.each do |book| %>
-    <p>
+    <li>
       <% book.delete if book.photos.all.empty? %>
-      <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "120x120"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
-    </p>
+      <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "204x204"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
+    </li>
       <% end %>
     </div>
 

@@ -3,6 +3,14 @@ class PublicController < ApplicationController
   def index
     @users = User.all
     @user = User.new
+    @public_flipbks =  []
+    Flipbk.all.each do |f|
+      if f.public
+        @public_flipbks << f
+      end
+    end
+
+    
   end
   
   def create
@@ -18,7 +26,7 @@ class PublicController < ApplicationController
   end
 
   def profile
-    @ueser = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
 end

@@ -1,3 +1,50 @@
-<h1>Edit Flipbook</h1>
+<body>
+  <div id="fb_main">
+    <h2>Edit your flipbook</h2>
+    <div id="new_flipbook_form">
+      <ul id="flipbook_fields">
+        <%= form_for @book do |f| %>
+        <%= f.hidden_field :user_id %>
 
-<%= render :partial => "form" %>
+        <li>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </li>
+  
+        <li>
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </li>
+  
+        <li>
+          <%= f.label "Speed (in ms)" %>
+          <% spd = @book.speed || 200 %>
+          <%= f.text_field :speed , :value => spd %>
+        </li>
+  
+        <li>
+          <%= f.label :public %>
+          <%= f.check_box :public %>
+        </li>
+      </ul>
+  
+        <p>
+          <% User.find(session[:user_id]).photos.all.each do |p| %>
+          <div class="photos_new">
+            <label for="<%= p.id %>">
+              <%= image_tag(p.url, height: '100', width: '100') %>
+              <%= check_box_tag('photos[]', p.id, (((p.flipbk_id == @book.id)&& p.flipbk_id != nil)?                      true : false), :id => "#{p.id}" ) %>
+            </label>
+          </div>
+          <% end %>
+        </p>
+  
+      </div>
+      
+      <%= f.submit "Save flipbook", :class => ".button" %>
+
+      <% end %> 
+
+    </div>
+  </div>
+</body>
