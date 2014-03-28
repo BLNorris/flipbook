@@ -1,0 +1,9 @@
+development:
+      bucket: flipbook-ocs
+      access_key_id: AKIAJM6AC663FA3WLTSQ
+      secret_access_key: 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
+
+    production:
+      bucket: flipbook-ocs
+      access_key_id: AKIAJM6AC663FA3WLTSQ
+      secret_access_key: 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
