@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   
   def index
     if current_user
-      redirect_to(:flipbks)
+      redirect_to(user_url(current_user.id))
     end
   end
   
