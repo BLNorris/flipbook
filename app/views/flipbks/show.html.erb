@@ -1,45 +1,46 @@
 <body>
 
-<div id="main">
+  <div id="main">
   
-  <div id="flipbooks_show">
+    <div id="flipbooks_show">
     
-    <h2><%= @book.user.name %>'s Flipbook <%= @book.name %></h2>
+      <h2><%= @book.user.name %>'s Flipbook <%= @book.name %></h2>
     
-    <div id="flipbook_show_photos">
+      <div id="flipbook_show_photos">
 
 
-      <%= image_tag(@book.url, height: '450', width: '450') %>
+        <%= image_tag(@book.url, height: '450', width: '450') %>
 
 
-    </div>
+      </div>
     
-    <h3 id="flipbook_description"><%= @book.description %></h3>
+      <h3 id="flipbook_description"><%= @book.description %></h3>
 
 
-    <ul id="settings">
-    <% if current_user && current_user.id == @book.user_id %>
+      <ul id="settings">
+        <% if current_user && current_user.id == @book.user_id %>
     
-    <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
+        <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-    <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin )            %></li>
+        <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin )            %></li>
 
-    <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
+        <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
 
-    <% else %>
+        <% else %>
 
-    <% end %>
-    </ul>
+        <% end %>
+      </ul>
     
-    <% if @book.public %>
-
-      <a title='circletwitterbird' onclick="return !window.open(this.href, 'Twitter', 'width=640,height=300')" class='symbol popup' href="http://twitter.com/share" ></a>
+      <% if @book.public %>
+      <div id="social_media_share">
+        <a title='circletwitterbird' onclick="return !window.open(this.href, 'Twitter', 'width=640,height=300')" class='symbol popup' href="http://twitter.com/share" ></a>
   
-      <a title="circlefacebook" class="symbol facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url%>"></a>   
+        <a title="circlefacebook" class="symbol facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url%>"></a>   
     
-      <a title='circletumblr' onclick="return !window.open(this.href, 'Tumblr', 'width=640,height=300')" class='symbol popup' href="http://tumblr.com/share" ></a>
+        <a title='circletumblr' onclick="return !window.open(this.href, 'Tumblr', 'width=640,height=300')" class='symbol popup' href="http://tumblr.com/share" ></a>
+      </div>
       <% end %>
-  </div>
+    </div>
   
-</div>
+  </div>
 </body>

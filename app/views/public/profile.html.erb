@@ -2,31 +2,31 @@
 <html>
 <body>
 
-  <div id="profile" class="clearfix">
+  <div id           = "profile" class="clearfix">
   
-    <div id="profile_left">
-      <div id="avatar">
+    <div id         = "profile_left">
+      <div id       = "avatar">
         <%= gravatar_tag User.find(params[:id]), :size => 150 %>
       </div>
     </div>
     
-    <div id="profile_right">
-      <div id="name">
+    <div id         = "profile_right">
+      <div id       = "name">
         <h2><%= @user.name %></h2>
       </div> 
   
-      <div id="profile_nav">
-        <ul id="public_links">
+      <div id       = "profile_nav">
+        <ul id      = "public_links">
         
-          <li id="connect_instagram">
-            <a href="/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with Instagram</a>
+          <li id    = "connect_instagram">
+            <a href = "/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with Instagram</a>
           </li>
 
           <li>
-            <a href="<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return true;">Create New Flipbook</a>
+            <a href = "<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return true;">Create New Flipbook</a>
           </li>
    
-          <li id="view_public">
+          <li id    = "view_public">
             <%= link_to("Your Public Profile", profile_url(current_user.id), html_options = {:class =>"hiddenlink", :onmouseover => "self.status='';return true;"})
             %>
           </li>
@@ -39,22 +39,22 @@
       </div>
     </div>
     
-    <div id="show_flipbooks" class="clearfix">
+    <div id         = "show_flipbooks" class="clearfix">
 
       <p><%= @user.name %>'s Public Flipbooks:</p>
 
-      <div id="flipbook_index_list">
+      <div id       = "flipbook_index_list">
         <% @user.flipbks.each do |book| %>
-      <li>
-        <% book.delete if book.photos.all.empty? %>
-        <% if book.public %>
-        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "212x212"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
-        <% end %>
-      </li>
+        <li>
+          <% book.delete if book.photos.all.empty? %>
+          <% if book.public %>
+          <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "212x212"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
+          <% end %>
+        </li>
         <% end %>
       </div>
       
-  </div>
+    </div>
 
-</body>
-</html>
+  </body>
+  </html>
