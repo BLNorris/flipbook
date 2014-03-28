@@ -10,6 +10,15 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+  <script>
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox() 
+  })
+  $.facebox.settings.closeImage = '/assets/closelabel.png'
+  $.facebox.settings.loadingImage = '/assets/loading.gif'
+  </script>
+  </head>
 <body>
   
 <div id="main" class="clearfix">
@@ -46,7 +55,16 @@
     <h3>Discover our flipbooks.</h3>
   </div>
   
-
-
+  <div id="show_flipbooks" class="clearfix">
+    <div id="flipbook_index_list">
+      <% @public_flipbks.each do |f| %>
+        <li class="flipbook">
+          <a rel="facebox" href="<%= f.url %>">
+            <img src="<%= f.photos.all.first.url %>" width="200" height="200"></img>
+          </a>
+        </li>
+      <% end %>
+    </div>
+  </div>
 </body>
 </html>

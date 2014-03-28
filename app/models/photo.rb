@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :description, :flipbk_id, :url, :user_id
+  attr_accessible :description, :flipbk_id, :url, :user_id, :order
   
   belongs_to :flipbk
   belongs_to :user
