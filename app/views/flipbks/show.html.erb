@@ -1,24 +1,17 @@
 <body>
 
-  <script type="text/javascript">
-  var index=0;
-  function changeBanner(){ 
-    [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
-    index = (index+1) % document.images.length;
-  }
-  window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
-  </script>
+<div id="main">
   
   <div id="flipbooks_show">
     
     <h2><%= @book.user.name %>'s Flipbook <%= @book.name %></h2>
     
     <div id="flipbook_show_photos">
-    <% @book.photos.each do |p| %>
 
-      <%= image_tag(p.url, height: '450', width: '450', hidden: true) %>
 
-    <% end %> 
+      <%= image_tag(@book.url, height: '450', width: '450') %>
+
+
     </div>
     
     <h3 id="flipbook_description"><%= @book.description %></h3>
@@ -29,12 +22,15 @@
     
     <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-    <li><%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete, :class =>             :margin ) %></li>
+    <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin )            %></li>
 
-    <li><%= link_to("Back to list", user_url(current_user.id), :class => :margin) %></li>
+    <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
+
     <% else %>
 
     <% end %>
     </ul>
   </div>
+  
+</div>
 </body>

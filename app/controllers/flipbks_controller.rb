@@ -11,21 +11,38 @@ class FlipbksController < ApplicationController
     
     if @book.save
       dir = "#{RAILS_ROOT}/tmp/#{@book.id}/"
-      name = "#{@book.user_id}-#{@book.name.gsub(/\s+/, "")}"
+      name = "#{@book.user_id}-#{@book.id}-#{@book.name.gsub(/\s+/, "")}"
+      
+      orders = []
+      if params[:order]
+        params[:order].each do |o|
+          p = o.split("-")
+          orders << p
+        end
+      end
+
+      
       if params[:photos]      
         params[:photos].each do |p|
           photo = Photo.find(p)
+          
+          orders.each do |o|
+            photo.order = o[1] if photo.id == o[0]
+          end
+          
+          
           photo.flipbk_id = @book.id
           photo.save
+        end
+      end
+      
 
-          Dir.mkdir(dir) unless File.exists?(dir)
-          open("#{dir}image#{photo.id}.png", 'wb') do |file|
-            puts "#{dir}image#{photo.id}.png"
-            
-            puts photo.url
-            puts "ppooop"
-            file << open(photo.url).read
-          end
+      
+      sorted = @book.photos.sort_by &:order
+      sorted.each_with_index do |photo, index| 
+        Dir.mkdir(dir) unless File.exists?(dir)
+        open("#{dir}image#{photo.order}#{photo.id}.png", 'wb') do |file|
+        file << open(photo.url).read
         end
       end
       
@@ -45,7 +62,10 @@ class FlipbksController < ApplicationController
     @book.update_attributes(params[:flipbk])
     @book.user_id = session[:user_id]
     
+    
     if @book.save
+      dir = "#{RAILS_ROOT}/tmp/#{@book.id}/"
+      name = "#{@book.user_id}-#{@book.id}-#{@book.name.gsub(/\s+/, "")}"
       Photo.all.each do |p|
         if p.flipbk_id == @book.id
           p.flipbk_id = nil
@@ -59,8 +79,19 @@ class FlipbksController < ApplicationController
           photo = Photo.find(p)
           photo.flipbk_id = @book.id
           photo.save
+          Dir.mkdir(dir) unless File.exists?(dir)
+          open("#{dir}image#{photo.id}.png", 'wb') do |file|
+            file << open(photo.url).read
+          end
         end
       end
+      
+      save_to_s3(@book, dir, name)
+      
+
+      FileUtils.remove_dir(dir,true)
+      
+      
       redirect_to(flipbk_path(@book.id))
     else
       render "edit"
@@ -72,6 +103,8 @@ class FlipbksController < ApplicationController
   end
 
   def destroy
+    
+    puts "ITS TOTALLY HITTINF DESTROY"
     book = Flipbk.find(params[:id])
     book.photos.each do |p|
       p.flipbk_id = nil

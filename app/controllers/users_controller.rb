@@ -24,13 +24,13 @@ class UsersController < ApplicationController
       photo = Photo.create(:url => photo_url , :user_id => session[:user_id]) 
     end
     
-    redirect_to(user_url(current_user.id))
+    redirect_to(:new_flipbk)
   end
 
   
   def index
     if current_user
-      redirect_to(:flipbks)
+      redirect_to(user_url(current_user.id))
     end
   end
   
@@ -63,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    redirect_to(user_url(current_user.id))
   end
 
   def edit
@@ -70,6 +71,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    redirect_to(:root)
   end
 
 end

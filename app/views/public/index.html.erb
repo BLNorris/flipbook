@@ -8,9 +8,9 @@
   <% i = 0 if i == 3 %>
 <% end %> -->
 
-<!DOCTYPE html>
-<html>
-<body>
+
+
+
   
 <div id="main" class="clearfix">
   
@@ -34,7 +34,7 @@
   <div id="main_right">
     <div id="hp_flipbk">
       <video autoplay loop>
-          <source src="videos/flipbook.mp4" type="video/mp4">
+          <source src="videos/Rolling.mp4" type="video/mp4">
            Your browser doesn’t support this video. Consider downloading Chrome.
       </video>
     </div>
@@ -43,10 +43,21 @@
 </div>
   
   <div id="midline">
-    <h3>Discover our flipbooks.</h3>
+    <h3>Discover our flipbooks</h3>
   </div>
-  
 
+  <div id="hp_public_fbs" class="clearfix">
+    <div id="public_fbs">
 
-</body>
-</html>
+      <% @public_flipbks.each do |f| %>
+        <li class="flipbook">
+          
+          <a href="<%= flipbk_path(f.id) %>">
+            <img src="<%= f.photos.all.first.url %>" width="212" height="212"></img>
+
+          </a>
+        </li>
+      <% end %>
+    </div>
+  </div>
+

@@ -59,19 +59,68 @@ body{
   overflow: hidden;
 }
 
-.facebook_icon{
-  background: url("http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Facebook-alt-1-Metro-icon.png");
+.facebook_icon {
+    position: relative;
 }
-.twitter_icon{
-  background: url("http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Twitter-alt-2-Metro-icon.png");
+ 
+.facebook_icon:before {
+    content: "\f09a"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+/*--adjust as necessary--*/
+    color: #FFFFFF;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
-.tumblr_icon{
-  background: url("http://icons.iconarchive.com/icons/danleech/simple/24/tumblr-icon.png");
+
+.twitter_icon {
+    position: relative;
+}
+ 
+.twitter_icon:before {
+    content: "\f099"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+/*--adjust as necessary--*/
+    color: #FFFFFF;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.tumblr_icon {
+    position: relative;
+}
+ 
+.tumblr_icon:before {
+    content: "\f173"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+/*--adjust as necessary--*/
+    color: #FFFFFF;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
 
 /* -------------------------- */
 
 footer {
+  margin-left: auto;
+  margin-right: auto;
 	text-align: center;
 	font-color: #FFFFFF;
   font-size: 10px;
