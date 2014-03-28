@@ -8,18 +8,9 @@
   <% i = 0 if i == 3 %>
 <% end %> -->
 
-<!DOCTYPE html>
-<html>
-<head>
-  <script>
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox() 
-  })
-  $.facebox.settings.closeImage = '/assets/closelabel.png'
-  $.facebox.settings.loadingImage = '/assets/loading.gif'
-  </script>
-  </head>
-<body>
+
+
+
   
 <div id="main" class="clearfix">
   
@@ -43,7 +34,7 @@
   <div id="main_right">
     <div id="hp_flipbk">
       <video autoplay loop>
-          <source src="videos/flipbook.mp4" type="video/mp4">
+          <source src="videos/Rolling.mp4" type="video/mp4">
            Your browser doesn’t support this video. Consider downloading Chrome.
       </video>
     </div>
@@ -52,20 +43,21 @@
 </div>
   
   <div id="midline">
-    <h3>Discover our flipbooks.</h3>
+    <h3>Discover our flipbooks</h3>
   </div>
-  
-  <div id="show_flipbooks" class="clearfix">
-    <div id="flipbook_index_list">
+
+  <div id="hp_public_fbs" class="clearfix">
+    <div id="public_fbs">
+
       <% @public_flipbks.each do |f| %>
         <li class="flipbook">
-          <a rel="facebox" href="<%= f.url %>">
-            <img src="<%= f.photos.all.first.url %>" width="200" height="200"></img>
+          
+          <a href="<%= flipbk_path(f.id) %>">
+            <img src="<%= f.photos.all.first.url %>" width="212" height="212"></img>
+
           </a>
         </li>
       <% end %>
     </div>
   </div>
 
-</body>
-</html>

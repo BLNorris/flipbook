@@ -1,10 +1,10 @@
 <body>
 
-
+<div id="main">
   
   <div id="flipbooks_show">
     
-    <h2><%= @book.user.name %>'s flipbook, <%= @book.name %></h2>
+    <h2><%= @book.user.name %>'s Flipbook <%= @book.name %></h2>
     
     <div id="flipbook_show_photos">
 
@@ -20,11 +20,12 @@
     <ul id="settings">
     <% if current_user && current_user.id == @book.user_id %>
     
-    <li><%= link_to("Edit flipbook", "/flipbks/#{@book.id}/edit") %></li>
+    <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-    <li><%= link_to("Delete flipbook", flipbk_path(@book.id), :method => :delete, :class =>                       :margin ) %></li>
+    <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin )            %></li>
 
-    <li><%= link_to("Your Profile", user_url(current_user.id), :class => :margin) %></li>
+    <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
+
     <% else %>
 
     <% end %>
@@ -39,4 +40,6 @@
       <a title='circletumblr' onclick="return !window.open(this.href, 'Tumblr', 'width=640,height=300')" class='symbol popup' href="http://tumblr.com/share" ></a>
       <% end %>
   </div>
+  
+</div>
 </body>

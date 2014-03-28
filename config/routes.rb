@@ -4,6 +4,7 @@ Flipbook::Application.routes.draw do
    get '/photos' => 'photos#feed', :as => :feed
    resources :users, :flipbks, :logins, :photos
    
+   get 'flipbks/delete/:id' => 'flipbks#destroy'
    match 'users/:id' => 'users#show'
    
    get 'profile/:id' => 'public#profile', :as => :profile
