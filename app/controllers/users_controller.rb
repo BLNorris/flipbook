@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       photo = Photo.create(:url => photo_url , :user_id => session[:user_id]) 
     end
     
-    redirect_to(:flipbks)
+    redirect_to(user_url(current_user.id))
   end
 
   

@@ -23,6 +23,7 @@ class FlipbksController < ApplicationController
           end
         end
       end
+
       speed = @book.speed / 10
       system("convert -delay #{speed} #{dir}*.png #{dir}flipbook.gif ")
       
@@ -32,6 +33,7 @@ class FlipbksController < ApplicationController
       
       
       #FileUtils.remove_dir(dir,true)
+
       redirect_to(flipbk_path(@book.id))
     else
       render "new"

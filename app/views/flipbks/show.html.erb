@@ -1,35 +1,40 @@
+<body>
+
   <script type="text/javascript">
-    var index=0;
-    function changeBanner(){ 
-      [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
-      index = (index+1) % document.images.length;
-    }
-    window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
+  var index=0;
+  function changeBanner(){ 
+    [].forEach.call(document.images,function (v,i) { document.images[i].hidden = i!==index});
+    index = (index+1) % document.images.length;
+  }
+  window.onload = function () {setInterval(changeBanner, <%= @book.speed || 100 %>)};
   </script>
   
-  <%#  %>
-<%= @book.user.name %>'s book <%= @book.name %>
+  <div id="flipbooks_show">
+    
+    <h2><%= @book.user.name %>'s Flipbook <%= @book.name %></h2>
+    
+    <div id="flipbook_show_photos">
+    <% @book.photos.each do |p| %>
 
-<br>
-<br>
+      <%= image_tag(p.url, height: '450', width: '450', hidden: true) %>
 
-<% @book.photos.each do |p| %>
-
-  <%= image_tag(p.url, height: '450', width: '450', hidden: true) %>
-
-<% end %> 
-
-<p><%= @book.description %></p>
+    <% end %> 
+    </div>
+    
+    <h3 id="flipbook_description"><%= @book.description %></h3>
 
 
+    <ul id="settings">
+    <% if current_user && current_user.id == @book.user_id %>
+    
+    <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-<% if current_user && current_user.id == @book.user_id %>
-  <%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %>
+    <li><%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete, :class =>             :margin ) %></li>
 
-  <%= link_to("Delete Flipbook", flipbk_path(@book.id), :method => :delete ) %>
+    <li><%= link_to("Back to list", user_url(current_user.id), :class => :margin) %></li>
+    <% else %>
 
-  <%= link_to("Back to list", :flipbks) %>
-<% else %>
-
-<% end %>
-
+    <% end %>
+    </ul>
+  </div>
+</body>
