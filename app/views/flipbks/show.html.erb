@@ -24,7 +24,7 @@
 
     <li><%= link_to("Delete flipbook", flipbk_path(@book.id), :method => :delete, :class =>                       :margin ) %></li>
 
-    <li><%= link_to("Your Profile", user_url(current_user.id), :class => :margin) %></li>
+    <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
     <% else %>
 
     <% end %>
