@@ -1,6 +1,6 @@
 <body>
 
-
+<div id="main">
   
   <div id="flipbooks_show">
     
@@ -22,7 +22,7 @@
     
     <li><%= link_to("Change Flipbook", "/flipbks/#{@book.id}/edit") %></li>
 
-    <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin ) %></li>
+    <li><%= link_to("Delete Flipbook", flipbk_path("delete/#{@book.id}"), method: :delete, :class => :margin )            %></li>
 
     <li><%= link_to("Your flipbooks", user_url(current_user.id), :class => :margin) %></li>
 
@@ -31,4 +31,6 @@
     <% end %>
     </ul>
   </div>
+  
+</div>
 </body>
