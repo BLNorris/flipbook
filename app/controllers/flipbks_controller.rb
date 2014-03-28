@@ -41,7 +41,7 @@ class FlipbksController < ApplicationController
       sorted = @book.photos.sort_by &:order
       sorted.each_with_index do |photo, index| 
         Dir.mkdir(dir) unless File.exists?(dir)
-        open("#{dir}imagedooo#{photo.order}#{photo.id}.png", 'wb') do |file|
+        open("#{dir}image#{photo.order}#{photo.id}.png", 'wb') do |file|
         file << open(photo.url).read
         end
       end
@@ -103,6 +103,8 @@ class FlipbksController < ApplicationController
   end
 
   def destroy
+    
+    puts "ITS TOTALLY HITTINF DESTROY"
     book = Flipbk.find(params[:id])
     book.photos.each do |p|
       p.flipbk_id = nil
