@@ -19,20 +19,20 @@
         <ul id="public_links">
         
           <li id="connect_instagram">
-            <a href="/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with            Instagram</a>
+            <a href="/oauth/connect" class="hiddenlink" onmouseover="self.status='';return true;">Connect with Instagram</a>
           </li>
 
           <li>
-            <a href="<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return                        true;">Create New Flipbook</a>
+            <a href="<%= new_flipbk_path %>" class="hiddenlink" onmouseover="self.status='';return true;">Create New Flipbook</a>
           </li>
    
           <li id="view_public">
-            <%= link_to("Your Public Profile", profile_url(current_user.id), html_options = {:class =>                  "hiddenlink", :onmouseover => "self.status='';return true;"})
+            <%= link_to("Your Public Profile", profile_url(current_user.id), html_options = {:class =>"hiddenlink", :onmouseover => "self.status='';return true;"})
             %>
           </li>
 
           <li>
-            <%= link_to("Edit Your Profile", edit_user_url(session[:user_id]), html_options = {:class =>                  "hiddenlink", :onmouseover => "self.status='';return true;"}) %>
+            <%= link_to("Edit Your Profile", edit_user_url(session[:user_id]), html_options = {:class =>"hiddenlink", :onmouseover => "self.status='';return true;"}) %>
           </li>
         
         </ul>
@@ -41,7 +41,7 @@
     
     <div id="show_flipbooks" class="clearfix">
 
-      <p><%= @user.name %>'s Public flipbooks:</p>
+      <p><%= @user.name %>'s Public Flipbooks:</p>
 
       <div id="flipbook_index_list">
         <% @user.flipbks.each do |book| %>
