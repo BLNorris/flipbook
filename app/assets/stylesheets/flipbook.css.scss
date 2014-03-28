@@ -33,8 +33,9 @@
   color: #000000;
 }
 
-#flipbook_index_list{
-  margin-left: 15px;
+#flipbook_index_list li{
+  display: inline;
+  margin: 1px;
 }
 
 #link_new_flipbook{
@@ -79,6 +80,10 @@
   margin-right: 20px;
 }
 
+#photos_new{
+  padding-bottom: 15px;
+}
+
 #new_flipbook_form .button{
   float: left;
   margin-top: 15px;
@@ -86,6 +91,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
 }
+
 /*------------------------------------------------*/
 
 #flipbooks_show{
@@ -93,25 +99,35 @@
   width: 600px;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 10px;
   text-align:center;
   margin: 50px 25%;
 }
+
 #settings{
-  padding:0;
+  padding: 0;
 }
 
 #settings li{
   display:inline-block;
 }
 
+#settings a{
+  color: #1393B8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+#settings a:hover{
+  color: #000000;
+}
+
 .margin{
-  margin-left:35px;
+  margin-left: 35px;
 }
 
 #flipbook_description{
-  margin:auto;
-
+  margin: auto;
 }
 
 

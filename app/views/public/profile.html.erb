@@ -38,23 +38,22 @@
         </ul>
       </div>
     </div>
-
-  
     
-    <div id="flipbook_index_list">
-      <p><%= @user.name %>'s Public Flipbooks:</p>
-      <% @user.flipbks.each do |book| %>
-      <p>
+    <div id="show_flipbooks" class="clearfix">
+
+      <p><%= @user.name %>'s Public flipbooks:</p>
+
+      <div id="flipbook_index_list">
+        <% @user.flipbks.each do |book| %>
+      <li>
         <% book.delete if book.photos.all.empty? %>
         <% if book.public %>
-        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "120x120"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
+        <%=  link_to(image_tag(book.photos.all.first.url,:alt => book.name, :size => "204x204"),                      flipbk_path(book.id)) if !(book.photos.all.empty?) %>
         <% end %>
-      </p>
-      <% end %>
-    </div>
-
-  
-  
+      </li>
+        <% end %>
+      </div>
+      
   </div>
 
 </body>
