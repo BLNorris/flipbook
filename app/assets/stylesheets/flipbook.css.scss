@@ -33,8 +33,9 @@
   color: #000000;
 }
 
-#flipbook_index_list{
-  margin-left: 15px;
+#flipbook_index_list li{
+  display: inline;
+  margin: 1px;
 }
 
 #link_new_flipbook{
