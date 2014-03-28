@@ -104,7 +104,7 @@ class FlipbksController < ApplicationController
 
   def destroy
     
-    puts "ITS TOTALLY HITTINF DESTROY"
+
     book = Flipbk.find(params[:id])
     book.photos.each do |p|
       p.flipbk_id = nil
