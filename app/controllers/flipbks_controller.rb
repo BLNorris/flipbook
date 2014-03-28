@@ -4,11 +4,14 @@ class FlipbksController < ApplicationController
   end
 
   def create
+
+ 
     @book = Flipbk.new(params[:flipbk])
     @book.user_id = session[:user_id]
     
     if @book.save
       dir = "#{RAILS_ROOT}/tmp/#{@book.id}/"
+      name = "#{@book.user_id}-#{@book.name.gsub(/\s+/, "")}"
       if params[:photos]      
         params[:photos].each do |p|
           photo = Photo.find(p)
@@ -19,19 +22,16 @@ class FlipbksController < ApplicationController
           open("#{dir}image#{photo.id}.png", 'wb') do |file|
             puts "#{dir}image#{photo.id}.png"
             
+            puts photo.url
+            puts "ppooop"
             file << open(photo.url).read
           end
         end
       end
+      
+      save_to_s3(@book, dir, name)
+      
 
-      speed = @book.speed / 10
-      system("convert -delay #{speed} #{dir}*.png #{dir}flipbook.gif ")
-      
-      
-      #sedt dir/flipbook.gif to amazon s3 and then save public url to flipbk
-      puts Service.buckets
-      
-      
       #FileUtils.remove_dir(dir,true)
 
       redirect_to(flipbk_path(@book.id))
@@ -105,6 +105,34 @@ class FlipbksController < ApplicationController
     
   end
   
+  private
+  
+  def save_to_s3(book, dir, name)
+    service = S3::Service.new(
+      :access_key_id     => "AKIAJM6AC663FA3WLTSQ", 
+      :secret_access_key => "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"
+    )
+    
+    speed = @book.speed / 10
+    system("convert -delay #{speed} #{dir}*.png #{dir}#{name}.gif")
+    
+    
+    #sedt dir/flipbook.gif to amazon s3 and then save public url to flipbk
+    
+    bucket = service.buckets.find("flipbook-ocs")
+
+    new_object = bucket.objects.build("#{name}.gif")
+
+    new_object.content = open("#{dir}#{name}.gif")
+
+    new_object.save
+    
+    object = bucket.objects.find("#{name}.gif")
+    @book.url = object.url
+
+    @book.save
+    
+  end
 
   
 end

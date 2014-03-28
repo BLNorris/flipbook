@@ -95,6 +95,7 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.4)
+    proxies (0.2.1)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -126,6 +127,8 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    s3 (0.3.21)
+      proxies (~> 0.2.0)
     sass (3.3.3)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -169,6 +172,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.17)
   rails_12factor
+  s3
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   unicorn
