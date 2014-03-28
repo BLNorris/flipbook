@@ -30,6 +30,15 @@
 
     <% end %>
     </ul>
+    
+    <% if @book.public %>
+
+      <a title='circletwitterbird' onclick="return !window.open(this.href, 'Twitter', 'width=640,height=300')" class='symbol popup' href="http://twitter.com/share" ></a>
+  
+      <a title="circlefacebook" class="symbol facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url%>"></a>   
+    
+      <a title='circletumblr' onclick="return !window.open(this.href, 'Tumblr', 'width=640,height=300')" class='symbol popup' href="http://tumblr.com/share" ></a>
+      <% end %>
   </div>
   
 </div>
