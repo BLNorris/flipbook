@@ -61,7 +61,7 @@
 }
 
 #signup_form{
-  border-style: solid;
+  
   width: 300px;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
@@ -97,6 +97,7 @@
 
 #hp_flipbk{
   border-style: solid;
+  padding: 5px;
   width: 300px;
   height: 300px;
 }
@@ -118,6 +119,17 @@ video{
 
 /* -------------------------- */
 
+#hp_public_fbs{
+  margin-top: 20px;
+  max-width: 650px;
+  margin: 50px auto 50px auto;
+}
+
+#public_fbs li{
+  list-style-type: none;
+  display: inline;
+  margin: 1px;
+}
 
 
 

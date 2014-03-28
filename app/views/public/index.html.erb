@@ -52,22 +52,20 @@
 </div>
   
   <div id="midline">
-    <h3>Discover our flipbooks.</h3>
+    <h3>Discover our flipbooks</h3>
   </div>
-  
-<<<<<<< HEAD
-  <div id="show_flipbooks" class="clearfix">
-    <div id="flipbook_index_list">
+
+  <div id="hp_public_fbs" class="clearfix">
+    <div id="public_fbs">
       <% @public_flipbks.each do |f| %>
         <li class="flipbook">
           <a rel="facebox" href="<%= f.url %>">
-            <img src="<%= f.photos.all.first.url %>" width="200" height="200"></img>
+            <img src="<%= f.photos.all.first.url %>" width="204" height="204"></img>
           </a>
         </li>
       <% end %>
     </div>
   </div>
-=======
->>>>>>> pg_coord
+
 </body>
 </html>

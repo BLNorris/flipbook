@@ -71,6 +71,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    redirect_to(:root)
   end
 
 end
