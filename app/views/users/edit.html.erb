@@ -1,9 +1,7 @@
-<div id="main" class="clearfix">
-  
-  <div id="main_left">
-    <div id="signup">
-        <div id="hp_form">
-          <h2>Edit Profile</h2>
+<body>
+  <div id="fb_main">
+    <h2>Edit Profile</h2>
+    
           <div id="errors">
           <%= form_for @user do |f| %>
             <% if @user.errors.any? %>
@@ -13,8 +11,8 @@
             <% end %>
           </div>
 
-          <div id="signup_form">
-          <ul id="signup_fields">
+          <div id="edit_form">
+            <ul id="edit_fields">
             <li>
               <%= f.label "Name" %>
               <%= f.text_field :name %>
