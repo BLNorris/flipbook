@@ -26,6 +26,11 @@ class FlipbksController < ApplicationController
       speed = @book.speed / 10
       system("convert -delay #{speed} #{dir}*.png #{dir}flipbook.gif ")
       
+      
+      #sedt dir/flipbook.gif to amazon s3 and then save public url to flipbk
+      puts Service.buckets
+      
+      
       #FileUtils.remove_dir(dir,true)
       redirect_to(flipbk_path(@book.id))
     else
