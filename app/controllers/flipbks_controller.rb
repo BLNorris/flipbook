@@ -142,8 +142,8 @@ class FlipbksController < ApplicationController
   
   def save_to_s3(book, dir, name)
     service = S3::Service.new(
-      :access_key_id     => "AKIAJM6AC663FA3WLTSQ", 
-      :secret_access_key => "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"
+      :access_key_id     => ENV["AWS_KEY"], 
+      :secret_access_key => ENV["AWS_SECRET"]
     )
     
     speed = @book.speed / 10
